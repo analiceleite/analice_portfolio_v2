@@ -1,19 +1,19 @@
 ---
 section: featured
 title: Destacados (Featured)
-url: https://www.linkedin.com/in/analice-leite/edit/
+url: https://www.linkedin.com/in/analice-leite/
 ---
 
-Ordem sugerida de itens no Destacados:
+Ordem recomendada de itens em Destacados:
 
-1. Crissia (SaaS Multi-tenant) — https://github.com/analiceleite/crissia
-   SaaS para brechós com multi-tenant, estoque, clientes, fornecedores, vendas, lives, sacolinhas, envios, financeiro, auth e PWA. Demo público.
+1. Portfólio — https://analice-dev.vercel.app/
+   Projetos, notas técnicas e experiência profissional.
 
-2. Worship Flow (Produção real) — https://github.com/analiceleite/worship_flow
-   App em produção com 30+ usuários reais. Repertórios, escalas, permissões, lembretes por e-mail, YouTube e integrações externas.
+2. Crissia — https://github.com/analiceleite/crissia
+   SaaS multi-tenant para gestão de brechós, com estoque, vendas, sacolinhas, financeiro, autenticação e demo pública.
 
-3. FocusFlow (SaaS Público) — https://focusflow.vercel.app
-   Plataforma de produtividade com auth, sync em tempo real, Pomodoro, estatísticas e PWA.
+3. Worship Flow — https://github.com/analiceleite/worship_flow
+   Aplicação em produção com 30+ usuários reais, controle de acesso, escalas, lembretes por e-mail e integrações externas.
 
-4. DBMind Agent (IA + DB) — https://github.com/analiceleite/dbmind_agent
-   Assistente IA que gera SQL a partir de linguagem natural com streaming chat e PostgreSQL.
+4. Engineering Notes — https://analice-dev.vercel.app/notes
+   Anotações técnicas sobre arquitetura de software, DDD, microsserviços, system design e IA.

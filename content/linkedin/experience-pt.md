@@ -1,27 +1,51 @@
 ---
-section: experience-analyst-pt
-title: Experiência - Analista (PT)
-url: https://www.linkedin.com/in/analice-leite/edit/experience/
+section: experience-pt
+title: Experiência - Bosch e Asaas (PT)
+url: https://www.linkedin.com/in/analice-leite/details/experience/
 ---
-
-Cargos: Analista de Desenvolvimento de Software | Técnica de Soluções Digitais | Aprendiz de Soluções Digitais
 
 ### Analista de Desenvolvimento de Software — Bosch Brasil (Jun 2026 - Atual)
 
-- Desenvolvimento e arquitetura de soluções corporativas globais em .NET, C#, Angular e TypeScript, com foco em escalabilidade, segurança e manutenibilidade.
-- Responsável por entregas DevOps (GCP, Cloud Run, GKE, Kubernetes, Terraform, Docker, CI/CD) em DEV, QA e PROD.
-- Coordenação de releases com SemVer, garantindo versionamento, readiness e entrega em produção em times globais.
-- Aplicação de Clean Architecture, DDD, TDD, code review e testes automatizados (Jest, Cypress) para elevar qualidade técnica.
-- Automação de fluxos com IA (n8n), integrando sistemas internos e reduzindo etapas manuais.
+Atuação em desenvolvimento full stack para soluções corporativas globais, usando .NET, C#, Angular, TypeScript e bancos relacionais.
+
+Responsabilidades e entregas:
+
+- Desenvolvimento e arquitetura de soluções internas com foco em escalabilidade, segurança e manutenibilidade.
+- Atuação em Cloud/DevOps com GCP, Cloud Run, GKE, Kubernetes, Terraform, Docker e pipelines CI/CD.
+- Participação em releases para ambientes DEV, QA e PROD, com versionamento SemVer e readiness de deploy.
+- Aplicação de Clean Architecture, DDD, TDD, code review e testes automatizados com Jest e Cypress.
+- Automação de fluxos com IA e n8n, integrando sistemas internos e reduzindo etapas manuais.
+- Colaboração com times globais para transformar requisitos de negócio em soluções técnicas robustas.
+
+Stack: .NET, C#, Angular, TypeScript, GCP, Cloud Run, GKE, Kubernetes, Terraform, Docker, CI/CD, PostgreSQL, MySQL, REST APIs, Jest, Cypress, Clean Architecture, DDD, TDD, n8n.
 
 ### Técnica de Soluções Digitais — Bosch Brasil (Jan 2025 - Jun 2026)
 
-- Construção e evolução de soluções full stack (Angular, Node.js, Java, C#) para projetos corporativos globais.
-- Integrações, APIs e serviços internos com baixo acoplamento, segurança e escalabilidade.
-- Modelagem, otimização e manutenção de bancos PostgreSQL e MySQL.
-- Participação em projetos de inovação globais, traduzindo requisitos complexos em soluções técnicas robustas.
+Construção e evolução de soluções full stack para projetos internos e globais, usando Angular, Node.js, Java, C# e bancos relacionais.
+
+Principais atividades:
+
+- Desenvolvimento de interfaces e APIs para sistemas corporativos.
+- Integração de sistemas internos com APIs e serviços externos.
+- Apoio em modelagem, manutenção e otimização de bancos PostgreSQL e MySQL.
+- Participação em projetos de inovação com times globais.
+- Aplicação de boas práticas de Clean Code, SOLID, code review e versionamento com Git.
+
+Stack: Angular, Node.js, Java, C#, PostgreSQL, MySQL, REST APIs, Git, Clean Code, SOLID.
 
 ### Aprendiz de Soluções Digitais — Bosch Brasil (Ago 2023 - Jan 2025)
 
-- Apoio ao backend (PHP, Java) e frontend (React, Angular), com modelagem de dados em MySQL.
-- Git, code review e boas práticas de Clean Code em fluxos estruturados.
+Primeira atuação profissional em desenvolvimento de software, com apoio em backend, frontend e banco de dados.
+
+Atividades:
+
+- Apoio ao desenvolvimento backend com PHP e Java.
+- Desenvolvimento frontend com React e Angular.
+- Modelagem e consultas em MySQL.
+- Uso de Git, code review e boas práticas de desenvolvimento em ambiente corporativo.
+
+### Assistente de Vendas Internas — Asaas (Dez 2022 - Ago 2023)
+
+Atuação em suporte às equipes de Inside Sales, Business Development e Expansão, com prospecção, qualificação de leads, CRM e análise comercial.
+
+Essa experiência fortaleceu minha visão de produto, comunicação com áreas de negócio e entendimento de processos comerciais em ambiente fintech.

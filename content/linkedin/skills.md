@@ -1,8 +1,10 @@
 ---
 section: skills
 title: Skills (Top 20)
-url: https://www.linkedin.com/in/analice-leite/edit/skills/
+url: https://www.linkedin.com/in/analice-leite/details/skills/
 ---
+
+Skills prioritárias para fixar e manter no topo:
 
 1. .NET
 2. C#
@@ -10,17 +12,30 @@ url: https://www.linkedin.com/in/analice-leite/edit/skills/
 4. TypeScript
 5. Full-Stack Development
 6. Software Architecture
-7. Cloud Computing (GCP)
-8. Kubernetes
-9. Terraform
-10. CI/CD
-11. Docker
-12. PostgreSQL
-13. MySQL
-14. Clean Architecture
-15. Domain-Driven Design (DDD)
-16. Test-Driven Development (TDD)
-17. Git
-18. REST APIs
-19. n8n / AI Automation
-20. Release Management / SemVer
+7. Backend Development
+8. Cloud Computing
+9. Google Cloud Platform (GCP)
+10. Kubernetes
+11. Terraform
+12. Docker
+13. CI/CD
+14. PostgreSQL
+15. MySQL
+16. REST APIs
+17. Clean Architecture
+18. Domain-Driven Design (DDD)
+19. Test-Driven Development (TDD)
+20. Git
+
+Skills secundárias que podem permanecer, mas não precisam ficar no topo:
+
+- React
+- Node.js
+- Java
+- Python
+- n8n
+- Cypress
+- Jest
+- Scrum
+- SQL
+- Software Engineering
