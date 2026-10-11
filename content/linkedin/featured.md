@@ -1,8 +1,10 @@
 ---
 section: featured
-title: Destacados (Featured)
+title: Destacados (Featured) - Alias PT
 url: https://www.linkedin.com/in/analice-leite/
 ---
+
+Use `featured-pt` para a versão em português ou `featured-en` para a versão em inglês.
 
 Ordem recomendada de itens em Destacados:
 

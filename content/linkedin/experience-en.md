@@ -1,25 +1,51 @@
 ---
 section: experience-en
-title: Experiência - Analyst (EN)
-url: https://www.linkedin.com/in/analice-leite/edit/experience/
+title: Experience - Bosch and Asaas (EN)
+url: https://www.linkedin.com/in/analice-leite/details/experience/
 ---
 
 ### Software Development Analyst — Bosch Brazil (Jun 2026 - Present)
 
-- Design and develop global enterprise solutions with .NET, C#, Angular and TypeScript, focusing on scalability, maintainability and security.
-- Drive DevOps (GCP, Cloud Run, GKE, Kubernetes, Terraform, Docker, CI/CD) across DEV, QA and PROD.
-- Coordinate releases using SemVer, ensuring versioning, deployment readiness and production delivery in global teams.
-- Apply Clean Architecture, DDD, TDD, code reviews and automated testing (Jest, Cypress) to raise technical quality.
-- Automate AI-assisted workflows (n8n), integrating internal systems securely and reducing manual steps.
+Full-stack development for global enterprise solutions using .NET, C#, Angular, TypeScript, and relational databases.
+
+Responsibilities and deliveries:
+
+- Development and architecture of internal solutions focused on scalability, security, and maintainability.
+- Cloud/DevOps work with GCP, Cloud Run, GKE, Kubernetes, Terraform, Docker, and CI/CD pipelines.
+- Participation in releases for DEV, QA, and PROD environments, using SemVer versioning and deployment readiness practices.
+- Application of Clean Architecture, DDD, TDD, code reviews, and automated testing with Jest and Cypress.
+- Automation of AI-assisted workflows with n8n, integrating internal systems and reducing manual steps.
+- Collaboration with global teams to transform business requirements into robust technical solutions.
+
+Stack: .NET, C#, Angular, TypeScript, GCP, Cloud Run, GKE, Kubernetes, Terraform, Docker, CI/CD, PostgreSQL, MySQL, REST APIs, Jest, Cypress, Clean Architecture, DDD, TDD, n8n.
 
 ### Digital Solutions Technician — Bosch Brazil (Jan 2025 - Jun 2026)
 
-- Built and evolved full-stack solutions (Angular, Node.js, Java, C#) for global corporate projects.
-- Designed integrations, APIs and internal services with low coupling, security and scalability.
-- Modeled, optimized and maintained PostgreSQL and MySQL databases.
-- Contributed to high-impact global innovation initiatives, translating complex business needs into robust technical solutions.
+Built and evolved full-stack solutions for internal and global corporate projects using Angular, Node.js, Java, C#, and relational databases.
+
+Main activities:
+
+- Development of interfaces and APIs for corporate systems.
+- Integration of internal systems with APIs and external services.
+- Support in modeling, maintaining, and optimizing PostgreSQL and MySQL databases.
+- Participation in innovation projects with global teams.
+- Application of Clean Code, SOLID, code review, and Git versioning practices.
+
+Stack: Angular, Node.js, Java, C#, PostgreSQL, MySQL, REST APIs, Git, Clean Code, SOLID.
 
 ### Digital Solutions Apprentice — Bosch Brazil (Aug 2023 - Jan 2025)
 
-- Supported backend (PHP, Java) and frontend (React, Angular), with MySQL data modeling.
-- Used Git, code reviews and Clean Code principles in structured development workflows.
+First professional experience in software development, supporting backend, frontend, and database work.
+
+Activities:
+
+- Supported backend development with PHP and Java.
+- Developed frontend features with React and Angular.
+- Worked with MySQL data modeling and queries.
+- Used Git, code reviews, and software development best practices in a corporate environment.
+
+### Internal Sales Assistant — Asaas (Dec 2022 - Aug 2023)
+
+Supported Inside Sales, Business Development, and Expansion teams with prospecting, lead qualification, CRM organization, and sales analysis.
+
+This experience strengthened my product thinking, communication with business areas, and understanding of commercial processes in a fintech environment.
