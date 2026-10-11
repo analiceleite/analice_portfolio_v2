@@ -21,24 +21,23 @@ source: 'Obsidian'
 ---
 
 # DDD com Vernon Vaughn
-
 ### O que é e para que serve o Domain-Driven Design (DDD)?
 
 Em essência, o DDD é uma abordagem para desenvolver software focado em **problemas de negócio complexos**. O objetivo principal é criar um software que seja um reflexo fiel da realidade da empresa, usando a mesma linguagem e os mesmos conceitos que os especialistas da área de negócio utilizam.
 
 - **Problema que resolve:** Evita que o software, mesmo tecnicamente perfeito, seja conceitualmente desalinhado com as operações e regras reais da empresa.
-- **Quando usar:** É mais valioso quando a complexidade do negócio é alta e suas regras mudam com frequência. Para problemas simples e óbvios, o esforço pode não valer a pena.
+- **Quando usar:** É mais valioso quando a complexidade do negócio é alta e suas regras mudam com frequência. Para problemas simples e óbvios, o esforço pode não valer a pena.  
 - **Quem se beneficia:** Desenvolvedores, arquitetos, líderes técnicos e também gestores, pois o DDD melhora a comunicação, o alinhamento e a tomada de decisão em todos os níveis.
 
 ### Pilares Fundamentais do DDD
 
 O DDD se baseia em alguns conceitos essenciais que são a base para todo o resto.
 
-| Conceito                                   | Descrição                                                                                                                                                                                                                                                                    |
-| ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Linguagem Ubíqua (Ubiquitous Language)** | É uma linguagem compartilhada e sem ambiguidades, criada em conjunto por desenvolvedores e especialistas de negócio. Essa linguagem é usada em **todas as conversas, diagramas e, principalmente, no código**.                                                               |
-| **Contexto Delimitado (Bounded Context)**  | É a fronteira onde um modelo de software e sua Linguagem Ubíqua são válidos e consistentes. Uma mesma palavra (ex: "Cliente") pode ter significados diferentes em contextos diferentes (um "Cliente" para o faturamento é diferente de um "Cliente" para o suporte técnico). |
-| **Knowledge Crunching**                    | É o processo contínuo de colaboração intensa entre a equipe técnica e os especialistas de domínio para refinar o conhecimento do negócio e traduzi-lo em um modelo de software útil.                                                                                         |
+|Conceito|Descrição|
+|---|---|
+|**Linguagem Ubíqua (Ubiquitous Language)**|É uma linguagem compartilhada e sem ambiguidades, criada em conjunto por desenvolvedores e especialistas de negócio. Essa linguagem é usada em **todas as conversas, diagramas e, principalmente, no código**.|
+|**Contexto Delimitado (Bounded Context)**|É a fronteira onde um modelo de software e sua Linguagem Ubíqua são válidos e consistentes. Uma mesma palavra (ex: "Cliente") pode ter significados diferentes em contextos diferentes (um "Cliente" para o faturamento é diferente de um "Cliente" para o suporte técnico).|
+|**Knowledge Crunching**|É o processo contínuo de colaboração intensa entre a equipe técnica e os especialistas de domínio para refinar o conhecimento do negócio e traduzi-lo em um modelo de software útil.|
 
 ### Por que usar o DDD? Os Problemas Organizacionais
 
@@ -61,11 +60,11 @@ O Design Estratégico é a primeira etapa do DDD, focada em entender o cenário 
 
 O Design Estratégico ajuda a classificar as diferentes partes do negócio (subdomínios) para direcionar o investimento de forma inteligente.
 
-| Tipo de Subdomínio                  | Descrição                                                                                                                               | Estratégia Recomendada                                                                                                                                            |
-| ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Core Domain (Domínio Principal)** | É a área que representa o **diferencial competitivo** da sua empresa. Geralmente é a mais complexa e a que mais gera valor.             | **Investimento máximo**. Use toda a força do DDD, com modelagem profunda, colaboração intensa e desenvolvimento interno.                                          |
-| **Supporting (Domínio de Suporte)** | São áreas necessárias para o Core Domain funcionar, mas que não são o seu diferencial. A complexidade é moderada.                       | **Desenvolvimento interno seletivo**. Construa uma solução, mas evite complexidade desnecessária. Não deve competir por atenção com o Core.                       |
-| **Generic (Domínio Genérico)**      | São áreas importantes, mas que já são resolvidas por soluções de mercado (commodities). Ex: sistemas de faturamento, autenticação, etc. | **Comprar ou usar uma solução pronta**. A estratégia é integrar uma solução existente (open source, SaaS) com o mínimo de atrito possível, não construir do zero. |
+|Tipo de Subdomínio|Descrição|Estratégia Recomendada|
+|---|---|---|
+|**Core Domain (Domínio Principal)**|É a área que representa o **diferencial competitivo** da sua empresa. Geralmente é a mais complexa e a que mais gera valor.|**Investimento máximo**. Use toda a força do DDD, com modelagem profunda, colaboração intensa e desenvolvimento interno.|
+|**Supporting (Domínio de Suporte)**|São áreas necessárias para o Core Domain funcionar, mas que não são o seu diferencial. A complexidade é moderada.|**Desenvolvimento interno seletivo**. Construa uma solução, mas evite complexidade desnecessária. Não deve competir por atenção com o Core.|
+|**Generic (Domínio Genérico)**|São áreas importantes, mas que já são resolvidas por soluções de mercado (commodities). Ex: sistemas de faturamento, autenticação, etc.|**Comprar ou usar uma solução pronta**. A estratégia é integrar uma solução existente (open source, SaaS) com o mínimo de atrito possível, não construir do zero.|
 
 Esse mapeamento é crucial para que a arquitetura do software e o esforço do time estejam alinhados com a estratégia do negócio, evitando desperdiçar energia em áreas que não geram vantagem competitiva.
 
@@ -79,15 +78,15 @@ O foco não é apenas técnico (como conectar APIs), mas principalmente **organi
 
 O Mapeamento de Contextos define um catálogo de padrões para descrever essas relações. Cada padrão tem implicações tanto técnicas quanto sociais (na dinâmica dos times).
 
-| Padrão                                                 | Descrição da Relação (Técnica e Social)                                                                                                                                                                                       | Quando Usar                                                                                                                                  |
-| ------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Partnership (Parceria)**                             | Dois times têm destinos interligados e colaboram intensamente. O sucesso de um depende do outro. Exige planejamento e sincronização constantes.                                                                               | Quando a integração entre dois contextos é crítica e ambos estão em desenvolvimento. É um modelo caro e de alta coordenação.                 |
-| **Shared Kernel (Núcleo Compartilhado)**               | Dois times concordam em compartilhar uma pequena parte do modelo (e do código). Qualquer mudança nesse núcleo precisa ser acordada entre ambos.                                                                               | Quando há uma sobreposição conceitual clara e pequena entre dois contextos e os times conseguem manter uma boa comunicação sobre ela.        |
-| **Customer-Supplier (Cliente-Fornecedor)**             | Relação assimétrica. O time **Upstream** (fornecedor) define a agenda e fornece uma API/serviço. O time **Downstream** (cliente) consome e precisa se adaptar. O cliente pode negociar, mas o fornecedor tem a palavra final. | É o padrão mais comum em empresas, onde um time depende do trabalho de outro.                                                                |
-| **Conformist (Conformista)**                           | O time Downstream (cliente) decide adotar o modelo do time Upstream (fornecedor) **sem tradução**. Ele se conforma com a linguagem e a estrutura do fornecedor.                                                               | Quando o modelo Upstream é bom, estável, ou quando o custo de criar uma tradução (ACL) é muito alto. Simplifica a integração.                |
-| **Anti-Corruption Layer (ACL) (Camada Anticorrupção)** | O time Downstream (cliente) cria uma camada de "tradução" para proteger seu próprio modelo interno. A ACL converte o modelo do fornecedor para o modelo do cliente, isolando-o de linguagens confusas, legadas ou instáveis.  | Quando o modelo Upstream é um "Big Ball of Mud", legado, ou simplesmente inconsistente. Garante a autonomia e a pureza do modelo do cliente. |
-| **Open Host Service (OHS) (Serviço de Host Aberto)**   | O time Upstream desenvolve e publica uma API bem documentada e padronizada, com a intenção de servir a múltiplos times Downstream. O foco é criar um serviço reutilizável e fácil de consumir.                                | Quando um contexto tem uma capacidade que é útil para várias outras partes da organização.                                                   |
-| **Published Language (Linguagem Publicada)**           | Ligado ao OHS, é a linguagem explícita (esquemas de eventos, formatos de dados) que um contexto publica para o mundo exterior. Essa linguagem deve ser estável e fácil de entender.                                           | Sempre que um contexto precisa se comunicar com o exterior de forma controlada, sem expor todos os seus detalhes internos.                   |
+|Padrão|Descrição da Relação (Técnica e Social)|Quando Usar|
+|---|---|---|
+|**Partnership (Parceria)**|Dois times têm destinos interligados e colaboram intensamente. O sucesso de um depende do outro. Exige planejamento e sincronização constantes.|Quando a integração entre dois contextos é crítica e ambos estão em desenvolvimento. É um modelo caro e de alta coordenação.|
+|**Shared Kernel (Núcleo Compartilhado)**|Dois times concordam em compartilhar uma pequena parte do modelo (e do código). Qualquer mudança nesse núcleo precisa ser acordada entre ambos.|Quando há uma sobreposição conceitual clara e pequena entre dois contextos e os times conseguem manter uma boa comunicação sobre ela.|
+|**Customer-Supplier (Cliente-Fornecedor)**|Relação assimétrica. O time **Upstream** (fornecedor) define a agenda e fornece uma API/serviço. O time **Downstream** (cliente) consome e precisa se adaptar. O cliente pode negociar, mas o fornecedor tem a palavra final.|É o padrão mais comum em empresas, onde um time depende do trabalho de outro.|
+|**Conformist (Conformista)**|O time Downstream (cliente) decide adotar o modelo do time Upstream (fornecedor) **sem tradução**. Ele se conforma com a linguagem e a estrutura do fornecedor.|Quando o modelo Upstream é bom, estável, ou quando o custo de criar uma tradução (ACL) é muito alto. Simplifica a integração.|
+|**Anti-Corruption Layer (ACL) (Camada Anticorrupção)**|O time Downstream (cliente) cria uma camada de "tradução" para proteger seu próprio modelo interno. A ACL converte o modelo do fornecedor para o modelo do cliente, isolando-o de linguagens confusas, legadas ou instáveis.|Quando o modelo Upstream é um "Big Ball of Mud", legado, ou simplesmente inconsistente. Garante a autonomia e a pureza do modelo do cliente.|
+|**Open Host Service (OHS) (Serviço de Host Aberto)**|O time Upstream desenvolve e publica uma API bem documentada e padronizada, com a intenção de servir a múltiplos times Downstream. O foco é criar um serviço reutilizável e fácil de consumir.|Quando um contexto tem uma capacidade que é útil para várias outras partes da organização.|
+|**Published Language (Linguagem Publicada)**|Ligado ao OHS, é a linguagem explícita (esquemas de eventos, formatos de dados) que um contexto publica para o mundo exterior. Essa linguagem deve ser estável e fácil de entender.|Sempre que um contexto precisa se comunicar com o exterior de forma controlada, sem expor todos os seus detalhes internos.|
 
 O Mapeamento de Contextos é uma ferramenta poderosa para tornar as dependências entre as áreas do software **explícitas e deliberadas**. Ao escolher um padrão, você não está apenas definindo uma integração técnica, mas também estabelecendo um contrato social sobre como os times irão interagir.
 
@@ -102,12 +101,12 @@ Seu objetivo é estruturar o código de forma que ele reflita o modelo de negóc
 O texto descreve um fluxo comum para executar uma ação de negócio dentro de um contexto:
 
 1. **Command (Comando):**
-   - É uma **ordem** para que o sistema execute uma ação específica (ex: `AssessRiskCommand` - "Avalie este Risco"). Representa a intenção do usuário ou de outro sistema.
+    - É uma **ordem** para que o sistema execute uma ação específica (ex: `AssessRiskCommand` - "Avalie este Risco"). Representa a intenção do usuário ou de outro sistema.
 2. **Domain Service (Serviço de Domínio):**
-   - Recebe o comando e **orquestra a lógica de negócio**. É usado quando uma regra de negócio é complexa e não pertence a uma única entidade. Ele executa a ação solicitada.
+    - Recebe o comando e **orquestra a lógica de negócio**. É usado quando uma regra de negócio é complexa e não pertence a uma única entidade. Ele executa a ação solicitada.
 3. **Domain Event (Evento de Domínio):**
-   - Após a conclusão da ação, o sistema dispara um **evento** para notificar o resto da aplicação que algo relevante aconteceu (ex: `RiskAssessedEvent` - "O Risco foi Avaliado").
-   - Isso **desacopla os processos**: a parte do sistema que processou o evento não precisa saber quem vai reagir a ele. Outros componentes podem "ouvir" esse evento e continuar o fluxo de trabalho.
+    - Após a conclusão da ação, o sistema dispara um **evento** para notificar o resto da aplicação que algo relevante aconteceu (ex: `RiskAssessedEvent` - "O Risco foi Avaliado").
+    - Isso **desacopla os processos**: a parte do sistema que processou o evento não precisa saber quem vai reagir a ele. Outros componentes podem "ouvir" esse evento e continuar o fluxo de trabalho.
 
 O fluxo é: **Comando → Serviço de Domínio executa a lógica → Evento de Domínio é disparado.**
 
@@ -115,13 +114,13 @@ O fluxo é: **Comando → Serviço de Domínio executa a lógica → Evento de D
 
 Estes são os "tijolos" que você usa para construir seu modelo.
 
-| Componente                              | Descrição                                                                                                                                                                                                                                                                                                        |
-| --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Command (Comando)**                   | Um objeto que encapsula um pedido para executar uma ação. É imperativo e descreve _o que_ deve ser feito.                                                                                                                                                                                                        |
-| **Domain Service (Serviço de Domínio)** | Um componente sem estado que contém lógica de domínio que não se encaixa naturalmente em nenhuma outra entidade. Ex: calculadoras complexas, coordenadores de processos.                                                                                                                                         |
-| **Domain Event (Evento de Domínio)**    | Um objeto que representa um fato que ocorreu no passado. É usado para notificar outras partes do sistema de forma desacoplada.                                                                                                                                                                                   |
-| **Policy (Política)**                   | Representa um conjunto de regras de negócio, restrições ou até mesmo algoritmos complexos (como um modelo de Machine Learning) que são parte central da lógica de domínio.                                                                                                                                       |
-| **Module (Módulo)**                     | Um mecanismo para **organizar o código internamente** dentro de um `Bounded Context`. São como pastas ou pacotes que agrupam classes e funcionalidades relacionadas (ex: um módulo de `intake`, outro de `processing`). Ajudam a manter o código limpo e a evitar que o contexto vire uma "grande bola de lama". |
+|Componente|Descrição|
+|---|---|
+|**Command (Comando)**|Um objeto que encapsula um pedido para executar uma ação. É imperativo e descreve _o que_ deve ser feito.|
+|**Domain Service (Serviço de Domínio)**|Um componente sem estado que contém lógica de domínio que não se encaixa naturalmente em nenhuma outra entidade. Ex: calculadoras complexas, coordenadores de processos.|
+|**Domain Event (Evento de Domínio)**|Um objeto que representa um fato que ocorreu no passado. É usado para notificar outras partes do sistema de forma desacoplada.|
+|**Policy (Política)**|Representa um conjunto de regras de negócio, restrições ou até mesmo algoritmos complexos (como um modelo de Machine Learning) que são parte central da lógica de domínio.|
+|**Module (Módulo)**|Um mecanismo para **organizar o código internamente** dentro de um `Bounded Context`. São como pastas ou pacotes que agrupam classes e funcionalidades relacionadas (ex: um módulo de `intake`, outro de `processing`). Ajudam a manter o código limpo e a evitar que o contexto vire uma "grande bola de lama".|
 
 O Design Tático fornece as ferramentas e os padrões para traduzir o conhecimento de negócio, obtido através do Design Estratégico, em um código bem estruturado, organizado e, o mais importante, que fala a **Linguagem Ubíqua** do domínio.
 
@@ -153,11 +152,11 @@ O texto revisita os componentes do Design Tático, adicionando mais detalhes sob
 Eventos não surgem apenas de ações diretas do usuário. O texto destaca duas fontes principais:
 
 1. **Ações do Usuário/Sistema (Commands):**
-   - O fluxo é claro: a interface do usuário gera uma intenção, que vira um `Command`. O `Aggregate` processa o `Command`. Se for válido, o estado muda e um `Domain Event` é disparado para anunciar o fato.
-   - **A interface solicita, o domínio decide, o evento registra.**
+    - O fluxo é claro: a interface do usuário gera uma intenção, que vira um `Command`. O `Aggregate` processa o `Command`. Se for válido, o estado muda e um `Domain Event` é disparado para anunciar o fato.
+    - **A interface solicita, o domínio decide, o evento registra.**
 2. **A Passagem do Tempo:**
-   - A simples passagem do tempo pode ser um gatilho para um evento de negócio. Por exemplo, o fim do dia pode disparar um evento `MonthEnded`.
-   - **O mesmo momento no tempo pode gerar eventos diferentes em contextos diferentes**. Para o contexto de Vendas, o fim do mês é `MonthEnded`; para o contexto de Contabilidade, pode ser `LedgerPeriodClosed`. Isso reforça de forma brilhante como o **significado** de um fato depende do `Bounded Context`.
+    - A simples passagem do tempo pode ser um gatilho para um evento de negócio. Por exemplo, o fim do dia pode disparar um evento `MonthEnded`.
+    - **O mesmo momento no tempo pode gerar eventos diferentes em contextos diferentes**. Para o contexto de Vendas, o fim do mês é `MonthEnded`; para o contexto de Contabilidade, pode ser `LedgerPeriodClosed`. Isso reforça de forma brilhante como o **significado** de um fato depende do `Bounded Context`.
 
 Juntando tudo, esses padrões do Design Tático permitem construir um modelo de domínio que não é apenas um repositório de dados, mas um sistema vivo, com comportamento rico e que protege ativamente suas próprias regras de negócio.
 
@@ -192,10 +191,10 @@ A interação acontece em duas direções:
 - Quando o núcleo precisa fazer algo externamente (ex: salvar dados, enviar um pagamento), ele chama uma **Porta de Saída** (que é apenas uma interface, como `IRepositorioDeApelidos` ou `IGatewayDePagamento`).
 - Um **Adaptador de Saída** implementa essa interface, traduzindo a necessidade do domínio para a tecnologia específica.
 - Exemplos de Adaptadores de Saída mencionados no texto:
-  - **Data Storage Adapter:** Implementa a porta de persistência, traduzindo os objetos do domínio para comandos SQL ou documentos NoSQL.
-  - **Payments Adapter:** Implementa a porta de pagamento, traduzindo a intenção de cobrar um valor para a chamada de API específica de um gateway de pagamento (Stripe, PayPal, etc.).
-  - **RPC Adapter:** Traduz uma chamada de negócio para um protocolo de chamada remota.
-  - **Event Publisher Adapter:** Pega um Evento de Domínio e o publica em um sistema de mensageria (Kafka, RabbitMQ), lidando com a serialização e o transporte.
+    - **Data Storage Adapter:** Implementa a porta de persistência, traduzindo os objetos do domínio para comandos SQL ou documentos NoSQL.
+    - **Payments Adapter:** Implementa a porta de pagamento, traduzindo a intenção de cobrar um valor para a chamada de API específica de um gateway de pagamento (Stripe, PayPal, etc.).
+    - **RPC Adapter:** Traduz uma chamada de negócio para um protocolo de chamada remota.
+    - **Event Publisher Adapter:** Pega um Evento de Domínio e o publica em um sistema de mensageria (Kafka, RabbitMQ), lidando com a serialização e o transporte.
 
 Em resumo, **Ports and Adapters** torna a infraestrutura um detalhe plugável. O modelo de domínio fica isolado e focado no que realmente importa (as regras de negócio), enquanto os adaptadores lidam com a "sujeira" da tecnologia. Isso resulta em um sistema mais flexível, testável e fácil de manter e evoluir.
 
@@ -209,22 +208,22 @@ A fonte da verdade não é mais uma "foto" do estado final, mas sim o "filme" co
 
 ### Como Funciona?
 
-| Conceito                            | Descrição                                                                                                                                                                                                                                                                                                                            |
-| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Event Stream (Fluxo de Eventos)** | É a lista ordenada de todos os `Domain Events` que aconteceram com uma instância específica de um `Aggregate`. Por exemplo, o histórico de uma `Cotação de Apólice` seria uma sequência como: `1. CotaçãoIniciada`, `2. LinhaDeItemAdicionada`, `3. OutraLinhaAdicionada`, `4. CotaçãoGerada`. Este fluxo _é_ o estado do aggregate. |
-| **Replay (Reconstituição)**         | Para obter o estado atual de um aggregate, o sistema não faz um `SELECT` no estado final. Em vez disso, ele **lê o `Event Stream` do início ao fim e reaplica cada evento** a uma nova instância do objeto em memória. Ao final da leitura, o objeto está em seu estado mais recente.                                                |
-| **Interpretação pelo Modelo**       | Um evento salvo no banco é apenas um dado. É o próprio `Aggregate` quem tem a lógica para **interpretar cada evento** durante o replay e saber como alterar seu estado. Isso garante que a lógica de negócio permaneça dentro do domínio.                                                                                            |
+|Conceito|Descrição|
+|---|---|
+|**Event Stream (Fluxo de Eventos)**|É a lista ordenada de todos os `Domain Events` que aconteceram com uma instância específica de um `Aggregate`. Por exemplo, o histórico de uma `Cotação de Apólice` seria uma sequência como: `1. CotaçãoIniciada`, `2. LinhaDeItemAdicionada`, `3. OutraLinhaAdicionada`, `4. CotaçãoGerada`. Este fluxo _é_ o estado do aggregate.|
+|**Replay (Reconstituição)**|Para obter o estado atual de um aggregate, o sistema não faz um `SELECT` no estado final. Em vez disso, ele **lê o `Event Stream` do início ao fim e reaplica cada evento** a uma nova instância do objeto em memória. Ao final da leitura, o objeto está em seu estado mais recente.|
+|**Interpretação pelo Modelo**|Um evento salvo no banco é apenas um dado. É o próprio `Aggregate` quem tem a lógica para **interpretar cada evento** durante o replay e saber como alterar seu estado. Isso garante que a lógica de negócio permaneça dentro do domínio.|
 
 ### Por que usar o Event Sourcing? Principais Vantagens
 
 1. **Trilha de Auditoria Completa e Confiável (Audit Trail)**
-   - Como cada mudança é um evento imutável, você tem um registro perfeito de tudo o que aconteceu com um objeto, desde sua criação. Isso é extremamente valioso para cenários de **compliance, auditoria e depuração**. Você pode responder não apenas "qual é o estado agora?", mas também "como chegamos até aqui?".
+    - Como cada mudança é um evento imutável, você tem um registro perfeito de tudo o que aconteceu com um objeto, desde sua criação. Isso é extremamente valioso para cenários de **compliance, auditoria e depuração**. Você pode responder não apenas "qual é o estado agora?", mas também "como chegamos até aqui?".
 2. **Capacidade de "Viajar no Tempo"**
-   - É possível reconstruir o estado de um aggregate em **qualquer ponto do passado**, bastando fazer o replay dos eventos até a data desejada.
+    - É possível reconstruir o estado de um aggregate em **qualquer ponto do passado**, bastando fazer o replay dos eventos até a data desejada.
 3. **Riqueza de Informações para o Negócio**
-   - O log de eventos é uma mina de ouro para análise de dados e Business Intelligence, pois captura o comportamento do usuário e do sistema em detalhes.
+    - O log de eventos é uma mina de ouro para análise de dados e Business Intelligence, pois captura o comportamento do usuário e do sistema em detalhes.
 4. **Alinhamento com o Comportamento do Domínio**
-   - A persistência reflete diretamente o comportamento (os eventos) do domínio, em vez de apenas sua estrutura de dados.
+    - A persistência reflete diretamente o comportamento (os eventos) do domínio, em vez de apenas sua estrutura de dados.
 
 Em resumo, o Event Sourcing é uma abordagem poderosa que trata a **história de um objeto como um cidadão de primeira classe**. Em vez de apagar o passado ao salvar um novo estado, ele o preserva como uma sequência de fatos, oferecendo uma trilha de auditoria robusta e uma nova gama de possibilidades analíticas.
 
@@ -234,12 +233,12 @@ Muitos associam DDD a microservices, mas o texto mostra que isso **não é uma r
 
 A abordagem é chamada de **Monólito Modular**.
 
-| Conceito                                | Descrição                                                                                                                                                                                                                                                                     |
-| --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Bounded Contexts como Módulos**       | Cada `Bounded Context` se torna um **módulo** (um pacote, namespace) logicamente separado dentro do monólito. A separação é conceitual e de código, não física (em servidores diferentes).                                                                                    |
-| **Isolamento com Ports and Adapters**   | Cada módulo pode (e deve) usar a arquitetura **Ports and Adapters** internamente para proteger seu próprio núcleo de domínio. Isso evita que os módulos criem dependências diretas e confusas entre si.                                                                       |
-| **Comunicação via Message Bus Interno** | Para que os módulos conversem sem acoplamento forte, eles usam um **barramento de mensagens interno** (in-memory message bus). Em vez de um módulo chamar o outro diretamente, ele publica um `Evento` no barramento. Os módulos interessados assinam esses eventos e reagem. |
-| **Baixo Acoplamento**                   | O módulo que emite um evento não sabe quem irá consumi-lo. Isso mantém os módulos independentes e facilita a evolução do sistema sem que uma mudança em um módulo quebre os outros.                                                                                           |
+|Conceito|Descrição|
+|---|---|
+|**Bounded Contexts como Módulos**|Cada `Bounded Context` se torna um **módulo** (um pacote, namespace) logicamente separado dentro do monólito. A separação é conceitual e de código, não física (em servidores diferentes).|
+|**Isolamento com Ports and Adapters**|Cada módulo pode (e deve) usar a arquitetura **Ports and Adapters** internamente para proteger seu próprio núcleo de domínio. Isso evita que os módulos criem dependências diretas e confusas entre si.|
+|**Comunicação via Message Bus Interno**|Para que os módulos conversem sem acoplamento forte, eles usam um **barramento de mensagens interno** (in-memory message bus). Em vez de um módulo chamar o outro diretamente, ele publica um `Evento` no barramento. Os módulos interessados assinam esses eventos e reagem.|
+|**Baixo Acoplamento**|O módulo que emite um evento não sabe quem irá consumi-lo. Isso mantém os módulos independentes e facilita a evolução do sistema sem que uma mudança em um módulo quebre os outros.|
 
 **Conclusão Principal:** Você pode ter os benefícios de limites de domínio claros e baixo acoplamento do DDD **sem a complexidade operacional** (deployment, monitoramento, rede) de uma arquitetura de microservices.
 
@@ -256,7 +255,7 @@ Este tema aborda como coordenar processos de negócio que duram várias etapas e
 
 #### 2. Orquestração (Orchestration) - A Abordagem Centralizada
 
-- **Como funciona:** Um novo componente chamado **Process Manager** (ou **Saga** ou **Orquestrador**) é introduzido. Sua única responsabilidade é **coordenar o fluxo**.
+- **Como funciona:** Um novo componente chamado **Process Manager** (ou **Saga** ou **Orquestrador**) é introduzido. Sua única responsabilidade é **coordenar o fluxo**.    
 - Ele ouve os eventos e, em vez de deixar os outros contextos decidirem o que fazer, ele envia **Comandos** diretos para o próximo `Bounded Context` na sequência.
 - **Exemplo:** O `Process Manager` ouve o evento `ApplicationSubmitted` e envia o **comando** `AssessRisk` para o contexto de `Risk`. Depois, ele ouve o evento `RiskAssessed` e envia o **comando** `CalculateRate` para o contexto de `Rate`.
 - **Pró:** O fluxo do processo de negócio fica explícito e centralizado em um único lugar, tornando-o mais fácil de entender, monitorar e modificar.
@@ -265,6 +264,8 @@ Este tema aborda como coordenar processos de negócio que duram várias etapas e
 **Conclusão Principal:** Enquanto a Coreografia distribui a lógica do fluxo, a Orquestração a centraliza em um `Process Manager`, que atua como um maestro, simplificando a lógica de integração dentro de cada `Bounded Context` participante.
 
 # Core Domain e Design Estratégico
+
+
 
 ## Relação do DDD com System Design
 
@@ -325,9 +326,8 @@ Repository ──persiste──> Aggregate Root
 - **Aggregate Root** é a fronteira transacional: ao carregar/salvar via Repository, tudo dentro do aggregate é consistido junto.
 
 Resumo prático:
-
-- **VO** = o _quê_ (valor, descrição)
-- **Entity** = _quem_ (identidade)
+- **VO** = o *quê* (valor, descrição)
+- **Entity** = *quem* (identidade)
 - **Aggregate** = fronteira de consistência
 - **Repository** = como você busca/salva aggregates\
 
@@ -367,12 +367,12 @@ Resumo prático:
 
 ### Decisão Prática
 
-| Pattern       | Use quando...                            |
-| ------------- | ---------------------------------------- |
-| Factory       | Criação é complexa ou varia por contexto |
-| Specification | Regras precisam ser combinadas/trocadas  |
-| Mediator      | Eventos disparam várias reações          |
-| Hexagonal     | Precisa blindar o domínio da tecnologia  |
+| Pattern | Use quando... |
+|---------|--------------|
+| Factory | Criação é complexa ou varia por contexto |
+| Specification | Regras precisam ser combinadas/trocadas |
+| Mediator | Eventos disparam várias reações |
+| Hexagonal | Precisa blindar o domínio da tecnologia |
 
 **Regra de ouro**: pattern só vale se resolve um problema real no seu contexto.
 
@@ -405,12 +405,12 @@ Resumo prático:
 
 ### Impacto no Design
 
-| Aspecto          | Benefício                                             |
-| ---------------- | ----------------------------------------------------- |
-| Acoplamento      | Agregados não se chamam diretamente                   |
-| Testes           | Valida o fato emitido, testa handlers isoladamente    |
-| Responsabilidade | Cada reação vira uma preocupação separada             |
-| Fluxo            | Decisão → Publicação → Reações (3 momentos distintos) |
+| Aspecto | Benefício |
+|---------|-----------|
+| Acoplamento | Agregados não se chamam diretamente |
+| Testes | Valida o fato emitido, testa handlers isoladamente |
+| Responsabilidade | Cada reação vira uma preocupação separada |
+| Fluxo | Decisão → Publicação → Reações (3 momentos distintos) |
 
 ### Resumo do Fluxo (ex: reserva)
 
@@ -427,15 +427,14 @@ Decisão de negócio (reservar)
 **Workshop colaborativo** para descobrir o domínio visualmente com post-its em ordem cronológica.
 
 ### Elementos (cores)
-
-| Elemento               | Significado                                              |
-| ---------------------- | -------------------------------------------------------- |
-| **Evento** (laranja)   | Fato já ocorrido (`ReservaRealizada`) — ponto de partida |
-| **Comando** (azul)     | Ação que dispara um evento                               |
-| **Actor** (amarelo)    | Quem inicia a ação                                       |
-| **Policy** (roxo)      | Regra reativa automática (`se evento X, então faz Y`)    |
-| **Agregado**           | Fronteira de consistência que emerge dos eventos         |
-| **Hotspot** (vermelho) | Dúvida, risco, pendência                                 |
+| Elemento | Significado |
+|----------|-------------|
+| **Evento** (laranja) | Fato já ocorrido (`ReservaRealizada`) — ponto de partida |
+| **Comando** (azul) | Ação que dispara um evento |
+| **Actor** (amarelo) | Quem inicia a ação |
+| **Policy** (roxo) | Regra reativa automática (`se evento X, então faz Y`) |
+| **Agregado** | Fronteira de consistência que emerge dos eventos |
+| **Hotspot** (vermelho) | Dúvida, risco, pendência |
 
 ### Fluxo do workshop
 
@@ -461,6 +460,8 @@ Domain experts + produto + desenvolvimento — **todos juntos**, em pé.
 
 Reduz modelagem prematura, torna o fluxo explícito e acelera o alinhamento. Os contextos descobertos podem virar módulos ou microsserviços — a separação é de **responsabilidade**, não de deploy.
 
+
+
 ## Active Record vs Data Mapper
 
 Ambos são padrões de ORM (Object-Relational Mapping), mas diferem fundamentalmente em **quem controla a persistência** e **como as entidades se relacionam com o banco**.
@@ -470,14 +471,12 @@ Ambos são padrões de ORM (Object-Relational Mapping), mas diferem fundamentalm
 Cada **objeto de domínio é também responsável pela própria persistência**. A entidade contém métodos como `save()`, `update()`, `delete()`.
 
 **Características:**
-
 - O objeto de domínio estende ou é uma instância de uma classe base que fornece os métodos de persistência
 - Cada instância corresponde a uma linha no banco
 - Acoplamento forte entre lógica de negócio e camada de dados
 - Menos código boilerplate para casos simples
 
 **Exemplo (Ruby on Rails / Laravel Eloquent):**
-
 ```ruby
 user = User.new(name: "Ana", email: "ana@exemplo.com")
 user.save               # persiste no banco
@@ -486,16 +485,15 @@ user.destroy            # deleta
 ```
 
 **Exemplo (TypeORM com Active Record):**
-
 ```typescript
 @Entity()
 class User extends BaseEntity {
-  @Column() name: string;
-  @Column() email: string;
+  @Column() name: string
+  @Column() email: string
 }
 
-const user = User.create({ name: 'Ana', email: 'ana@exemplo.com' });
-await user.save();
+const user = User.create({ name: "Ana", email: "ana@exemplo.com" })
+await user.save()
 ```
 
 ### Data Mapper
@@ -503,47 +501,44 @@ await user.save();
 A entidade de domínio é **ignorante sobre persistência** — ela é um **POCO/POJO simples**. Um mapper separado (repositório) é responsável por sincronizar o objeto com o banco.
 
 **Características:**
-
 - Objetos de domínio são "puros" (sem dependência de infraestrutura)
 - Separação clara entre lógica de negócio e persistência
 - Mais adequado para domínios complexos (DDD)
 - Requer mais código boilerplate (repositórios explícitos)
 
 **Exemplo (TypeORM com Data Mapper / Doctrine / Hibernate):**
-
 ```typescript
 @Entity()
 class User {
-  @Column() name: string;
-  @Column() email: string;
+  @Column() name: string
+  @Column() email: string
 }
 
 // Repositório explícito
-const userRepo = dataSource.getRepository(User);
+const userRepo = dataSource.getRepository(User)
 
-const user = new User();
-user.name = 'Ana';
-user.email = 'ana@exemplo.com';
-await userRepo.save(user);
+const user = new User()
+user.name = "Ana"
+user.email = "ana@exemplo.com"
+await userRepo.save(user)
 
-const found = await userRepo.findOneBy({ name: 'Ana' });
+const found = await userRepo.findOneBy({ name: "Ana" })
 ```
 
 ### Comparação Direta
 
-| Aspecto                             | Active Record                                                                 | Data Mapper                                                                 |
-| ----------------------------------- | ----------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| Onde fica a lógica de persistência? | No próprio objeto                                                             | Em um repositório separado                                                  |
-| Acoplamento                         | Alto (entidade conhece o banco)                                               | Baixo (entidade é "inocente")                                               |
-| Complexidade do domínio             | Simples a médio                                                               | Médio a complexo                                                            |
-| Testabilidade                       | Menos isolada                                                                 | Mais isolada (fácil mockar repositório)                                     |
-| Código                              | Menos boilerplate                                                             | Mais boilerplate                                                            |
-| Frameworks famosos                  | Rails ActiveRecord, Laravel Eloquent, Sequelize, TypeORM (modo active record) | Doctrine, Hibernate, SQLAlchemy (modo clássico), TypeORM (modo data mapper) |
+| Aspecto | Active Record | Data Mapper |
+|---|---|---|
+| Onde fica a lógica de persistência? | No próprio objeto | Em um repositório separado |
+| Acoplamento | Alto (entidade conhece o banco) | Baixo (entidade é "inocente") |
+| Complexidade do domínio | Simples a médio | Médio a complexo |
+| Testabilidade | Menos isolada | Mais isolada (fácil mockar repositório) |
+| Código | Menos boilerplate | Mais boilerplate |
+| Frameworks famosos | Rails ActiveRecord, Laravel Eloquent, Sequelize, TypeORM (modo active record) | Doctrine, Hibernate, SQLAlchemy (modo clássico), TypeORM (modo data mapper) |
 
 ### Quando usar cada um?
 
 **Active Record** — ideal para:
-
 - CRUDs simples
 - Prototipação rápida
 - Aplicações pequenas/médias
@@ -551,7 +546,6 @@ const found = await userRepo.findOneBy({ name: 'Ana' });
 - Frameworks full-stack monolíticos (Rails, Laravel)
 
 **Data Mapper** — ideal para:
-
 - Domínios complexos com muitas regras de negócio
 - Aplicações que seguem DDD (Domain-Driven Design)
 - Testes unitários mais isolados

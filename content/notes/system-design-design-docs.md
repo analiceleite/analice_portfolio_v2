@@ -22,64 +22,65 @@ source: 'Obsidian'
 
 > O que é o System Design
 > "System Design é o processo de definição de arquitetura, componentes, módulos e interfaces e dados para atender os requisitos específicos de uma aplicação"
->
+> 
 > Um Design Doc bem feito começa simples (visão geral), explica o problema (contexto) e só depois apresenta a solução — de forma clara e colaborativa.
 
-> **Throughput** é a **quantidade de trabalho que um sistema consegue processar por unidade de tempo**.
 
+
+> **Throughput** é a **quantidade de trabalho que um sistema consegue processar por unidade de tempo**.
 # System Design
 
-## Entendendo Principais Conceitos
+## Entendendo Principais Conceitos 
 
-- System Design é o processo de definição de arquitetura, componentes, módulos e interfaces e dados para atender os requisitos específicos de uma aplicação
-- É importante para pensar na arquitetura de forma intencional
-- Racionaliza as definições que realmente importam
-- Explorar possíveis soluções
-- Nos ajuda a ter uma visão de presente e futuro do software
-- Exercita a forma de pensar e planejar diferentes tipos de solução de software
+* System Design é o processo de definição de arquitetura, componentes, módulos e interfaces e dados para atender os requisitos específicos de uma aplicação
+* É importante para pensar na arquitetura de forma intencional
+* Racionaliza as definições que realmente importam 
+* Explorar possíveis soluções
+* Nos ajuda a ter uma visão de presente e futuro do software
+* Exercita a forma de pensar e planejar diferentes tipos de solução de software
 
 ## System Design vs Big Techs
 
-- Normalmente faz parte da maioria dos processos seletivos de Big Techs
-- Forma do candidato pensar
-- Repertório e o nível de profundidade nas tecnologias
-- Capacidade de dedução (aproximação de um resultado rapidamente)
-- Capacidade de comunicação
-- Capacidade de ser confrontado
+* Normalmente faz parte da maioria dos processos seletivos de Big Techs
+* Forma do candidato pensar
+* Repertório e o nível de profundidade nas tecnologias
+* Capacidade de dedução (aproximação de um resultado rapidamente)
+* Capacidade de comunicação
+* Capacidade de ser confrontado
 
 ## System Design No Mundo Real
 
-- É uma ferramenta na mão do arquiteto de soluções
-- É uma forma do arquiteto se expressar
-- Gerar convicções
-- Vender
-- Especificar e documentar
+* É uma ferramenta na mão do arquiteto de soluções 
+* É uma forma do arquiteto se expressar
+* Gerar convicções
+* Vender
+* Especificar e documentar
 
 ## Os 6 Elementos
 
-- Requisitos
-- Estimativa de capacidade
-- Modelagem de dados
-- API Design
-- **System Design (desenho)**
-- Exploração
+* Requisitos
+* Estimativa de capacidade 
+* Modelagem de dados
+* API Design
+* **System Design (desenho)**
+* Exploração 
 
-## Requisitos
+## Requisitos 
 
-- **Core Features e domínio (razão do sistema existir)**
-  - Entendimento do domínio da aplicação e principais funcionalidades
-- **Support Features**
-  - Funcionalidades auxiliares que farão com que as funcionalidades principais sejam atendidas
+* **Core Features e domínio (razão do sistema existir)**
+	* Entendimento do domínio da aplicação e principais funcionalidades
+* **Support Features**
+	* Funcionalidades auxiliares que farão com que as funcionalidades principais sejam atendidas
 
 ## Teorema CAP
 
 O Teorema CAP demonstra três pilares essenciais para sistemas distribuídos:
 
-- **Consistência (C)**: Todos os clientes veem os mesmos dados ao mesmo tempo, independentemente do nó ao qual se conectam
-- **Disponibilidade (A)**: Cada solicitação recebe uma resposta (sucesso ou falha) sem garantia de que a resposta contenha os dados mais recentes
-- **Tolerância a Partições (P)**: O sistema continua operando mesmo que haja falhas de comunicação entre os nós (partições)
+* **Consistência (C)**: Todos os clientes veem os mesmos dados ao mesmo tempo, independentemente do nó ao qual se conectam
+* **Disponibilidade (A)**: Cada solicitação recebe uma resposta (sucesso ou falha) sem garantia de que a resposta contenha os dados mais recentes
+* **Tolerância a Partições (P)**: O sistema continua operando mesmo que haja falhas de comunicação entre os nós (partições)
 
-O teorema afirma que é impossível para um sistema distribuído garantir simultaneamente os três pilares. É sempre necessário fazer um *trade-off* entre eles. Por exemplo, em sistemas como os de hotelaria ou bancos, a consistência dos dados é crucial. Se você tentar sacar R$100 da mesma conta em dois dispositivos diferentes, o sistema pode ficar indisponível momentaneamente para garantir que a consistência seja mantida e evitar que R$200 sejam sacados.
+O teorema afirma que é impossível para um sistema distribuído garantir simultaneamente os três pilares. É sempre necessário fazer um _trade-off_ entre eles. Por exemplo, em sistemas como os de hotelaria ou bancos, a consistência dos dados é crucial. Se você tentar sacar R$100 da mesma conta em dois dispositivos diferentes, o sistema pode ficar indisponível momentaneamente para garantir que a consistência seja mantida e evitar que R$200 sejam sacados.
 
 Escolher **Consistência (C)** em um sistema distribuído significa que, se houver uma **Partição (P)** na rede (ou seja, uma falha de comunicação entre os nós/microsserviços), o sistema **precisa sacrificar a Disponibilidade (A)** para garantir que todos os dados que são acessados sejam os mais recentes e corretos.
 
@@ -93,74 +94,74 @@ Escolher **Consistência (C)** em um sistema distribuído significa que, se houv
 
 Imagine um sistema de reserva de passagens aéreas. Se você tem dois servidores (nós) e eles perdem a comunicação entre si (partição):
 
-- **Priorizando Consistência:** Se um cliente tenta reservar o último assento de um voo em um servidor, e esse servidor não consegue se comunicar com o outro para garantir que o assento não foi reservado simultaneamente, o sistema **pode recusar a reserva ou mantê-la pendente** até que a comunicação seja restabelecida. Isso significa que o serviço de reserva ficou **indisponível** para aquele cliente naquele momento, mas a integridade dos dados (o assento não será duplamente reservado) é garantida.
+*   **Priorizando Consistência:** Se um cliente tenta reservar o último assento de um voo em um servidor, e esse servidor não consegue se comunicar com o outro para garantir que o assento não foi reservado simultaneamente, o sistema **pode recusar a reserva ou mantê-la pendente** até que a comunicação seja restabelecida. Isso significa que o serviço de reserva ficou **indisponível** para aquele cliente naquele momento, mas a integridade dos dados (o assento não será duplamente reservado) é garantida.
 
-> Para manter a consistência em face de uma partição, o sistema prefere _"não responder"_ ou "responder com erro" a _"responder com dados potencialmente incorretos ou inconsistentes"_.
+> Para manter a consistência em face de uma partição, o sistema prefere *"não responder"* ou "responder com erro" a *"responder com dados potencialmente incorretos ou inconsistentes"*.
 
 # System Design na Google Parte 01
 
 ## Princípios Fundamentais e Mentalidade
 
-- **System Design é Intencional:** É o processo de definir arquitetura, componentes, módulos, interfaces e dados para atender requisitos específicos de uma aplicação.
-- **Visão de Presente e Futuro:** Ajuda a planejar e exercitar a forma de pensar para diferentes soluções de software, antecipando necessidades futuras.
-- **Falha é Inevitável:** Em grande escala, tudo vai falhar, e a frequência de falhas aumenta com a escala. É crucial projetar sistemas que esperem e gerenciem falhas.
-- **Dividir Responsabilidades:** Evitar o acúmulo de responsabilidades para gerenciar a complexidade e promover a modularidade.
-- **Armazenar Apenas o Essencial:** Não armazenar dados desnecessários para otimizar recursos e desempenho.
-- **Software é um Filme:** Entender o software como um processo dinâmico e contínuo, não uma entidade estática.
-- **Estimativa Não Precisa Ser Perfeita:** A capacidade de estimar rapidamente é valiosa, mesmo que não seja 100% precisa. "100% de estática é uma falha."
+-   **System Design é Intencional:** É o processo de definir arquitetura, componentes, módulos, interfaces e dados para atender requisitos específicos de uma aplicação.
+-   **Visão de Presente e Futuro:** Ajuda a planejar e exercitar a forma de pensar para diferentes soluções de software, antecipando necessidades futuras.
+-   **Falha é Inevitável:** Em grande escala, tudo vai falhar, e a frequência de falhas aumenta com a escala. É crucial projetar sistemas que esperem e gerenciem falhas.
+-   **Dividir Responsabilidades:** Evitar o acúmulo de responsabilidades para gerenciar a complexidade e promover a modularidade.
+-   **Armazenar Apenas o Essencial:** Não armazenar dados desnecessários para otimizar recursos e desempenho.
+-   **Software é um Filme:** Entender o software como um processo dinâmico e contínuo, não uma entidade estática.
+-   **Estimativa Não Precisa Ser Perfeita:** A capacidade de estimar rapidamente é valiosa, mesmo que não seja 100% precisa. "100% de estática é uma falha."
 
 ## Requisitos e Restrições
 
-- **Requisitos Essenciais:**
-  - **Core Features e Domínio:** Entendimento profundo das funcionalidades principais e da razão de ser do sistema.
-  - **Support Features:** Funcionalidades auxiliares que garantem o funcionamento das core features.
-- **Variáveis de Qualidade da Experiência do Usuário:**
-  - Tipo do Software
-  - Workload (carga de trabalho)
-  - Ambiente (On-Premise, Cloud, Multi-Cloud, Híbridos)
-- **Restrições Cruciais:**
-  - Custo de downtime e possibilidade de suportá-lo.
-  - Custo de perder dados.
-  - Volume de dados armazenados.
-  - Frequência de leitura e escrita (Ratio).
-  - Número de usuários.
-  - Tempo de resposta.
-- **Jornadas Críticas do Usuário (CUJ):** Focar nas poucas jornadas que são mais críticas para a experiência do usuário.
-- **Recursos de Requerimento:** Nunca isolar recursos como tempo, dinheiro e pessoas do processo de requerimento.
+-   **Requisitos Essenciais:**
+    -   **Core Features e Domínio:** Entendimento profundo das funcionalidades principais e da razão de ser do sistema.
+    -   **Support Features:** Funcionalidades auxiliares que garantem o funcionamento das core features.
+-   **Variáveis de Qualidade da Experiência do Usuário:**
+    -   Tipo do Software
+    -   Workload (carga de trabalho)
+    -   Ambiente (On-Premise, Cloud, Multi-Cloud, Híbridos)
+-   **Restrições Cruciais:**
+    -   Custo de downtime e possibilidade de suportá-lo.
+    -   Custo de perder dados.
+    -   Volume de dados armazenados.
+    -   Frequência de leitura e escrita (Ratio).
+    -   Número de usuários.
+    -   Tempo de resposta.
+-   **Jornadas Críticas do Usuário (CUJ):** Focar nas poucas jornadas que são mais críticas para a experiência do usuário.
+-   **Recursos de Requerimento:** Nunca isolar recursos como tempo, dinheiro e pessoas do processo de requerimento.
 
 ## Considerações Técnicas Chave
 
-- **Teorema CAP:**
-  - É impossível para um sistema distribuído garantir Consistência (C), Disponibilidade (D), Tolerância a Partições (P) simultaneamente. É sempre necessário fazer um _trade-off_.
-  - **Consistência (C):** Todos os clientes veem os mesmos dados ao mesmo tempo.
-    - **Forte/Consistente:** Garante que todos os dados acessados são os mais recentes e corretos, geralmente via consenso distribuído (e.g., Paxos, Multi-Paxos, Raft). Em caso de partição, sacrifica a Disponibilidade.
-    - **Eventual:** Os dados eventualmente se tornam consistentes em todos os nós.
-  - **Disponibilidade (A):** Cada solicitação recebe uma resposta (sucesso ou falha), sem garantia de que a resposta contenha os dados mais recentes.
-  - **Tolerância a Partições (P):** O sistema continua operando mesmo com falhas de comunicação entre os nós.
-  - **Implicação:** Se a rede falhar (partição), um sistema que prioriza Consistência (C) sacrificará Disponibilidade (A). Equilibrar alta consistência e alta disponibilidade em sistemas distribuídos (dada a tolerância a partições) geralmente exige maior investimento.
-- **Armazenamento:**
-  - Armazenar é barato, consultar é caro.
-  - Considerar o _ratio_ de leitura/escrita.
-  - A evolução do hardware (HDDs vs. SSDs) impacta diretamente a performance de consulta, com SSDs sendo ideais para leitura intensa.
-- **Memória (RAM):** RAM é lento (em comparação com caches de CPU); acessar a memória de forma previsível é crucial para o desempenho.
-- **Rede (Network):**
-  - Cuidado com a latência (round-trip, especialmente entre regiões distintas).
-  - Comprimir dados para otimizar o tráfego.
-- **Hardware:**
-  - Naturalmente perde performance e quebra devido a fatores como aquecimento, eletricidade, vibração e cabeamento.
-  - Sistemas devem ser projetados para lidar com a degradação e falha do hardware.
+-   **Teorema CAP:**
+    -   É impossível para um sistema distribuído garantir Consistência (C), Disponibilidade (D), Tolerância a Partições (P) simultaneamente. É sempre necessário fazer um *trade-off*.
+    -   **Consistência (C):** Todos os clientes veem os mesmos dados ao mesmo tempo.
+        -   **Forte/Consistente:** Garante que todos os dados acessados são os mais recentes e corretos, geralmente via consenso distribuído (e.g., Paxos, Multi-Paxos, Raft). Em caso de partição, sacrifica a Disponibilidade.
+        -   **Eventual:** Os dados eventualmente se tornam consistentes em todos os nós.
+    -   **Disponibilidade (A):** Cada solicitação recebe uma resposta (sucesso ou falha), sem garantia de que a resposta contenha os dados mais recentes.
+    -   **Tolerância a Partições (P):** O sistema continua operando mesmo com falhas de comunicação entre os nós.
+    -   **Implicação:** Se a rede falhar (partição), um sistema que prioriza Consistência (C) sacrificará Disponibilidade (A). Equilibrar alta consistência e alta disponibilidade em sistemas distribuídos (dada a tolerância a partições) geralmente exige maior investimento.
+-   **Armazenamento:**
+    -   Armazenar é barato, consultar é caro.
+    -   Considerar o *ratio* de leitura/escrita.
+    -   A evolução do hardware (HDDs vs. SSDs) impacta diretamente a performance de consulta, com SSDs sendo ideais para leitura intensa.
+-   **Memória (RAM):** RAM é lento (em comparação com caches de CPU); acessar a memória de forma previsível é crucial para o desempenho.
+-   **Rede (Network):**
+    -   Cuidado com a latência (round-trip, especialmente entre regiões distintas).
+    -   Comprimir dados para otimizar o tráfego.
+-   **Hardware:**
+    -   Naturalmente perde performance e quebra devido a fatores como aquecimento, eletricidade, vibração e cabeamento.
+    -   Sistemas devem ser projetados para lidar com a degradação e falha do hardware.
 
 ## Escalabilidade e Resiliência
 
-- **Escalonamento:**
-  - Como o serviço e as requisições crescerão?
-  - Como gerenciar recursos deteriorados (degradados)?
-- **Questionar o Inevitável:**
-  - O que deve acontecer quando o sistema falhar?
-  - Que tipos de falhas são aceitáveis e relevantes para o negócio?
-- **Consulta:**
-  - Resultados degradados podem causar atrasos.
-  - É melhor falhar rápido do que esperar muito por um resultado ruim.
+-   **Escalonamento:**
+    -   Como o serviço e as requisições crescerão?
+    -   Como gerenciar recursos deteriorados (degradados)?
+-   **Questionar o Inevitável:**
+    -   O que deve acontecer quando o sistema falhar?
+    -   Que tipos de falhas são aceitáveis e relevantes para o negócio?
+-   **Consulta:**
+    -   Resultados degradados podem causar atrasos.
+    -   É melhor falhar rápido do que esperar muito por um resultado ruim.
 
 # Design Docs
 
@@ -239,10 +240,8 @@ O Design Doc deve deixar claro:
 - Times impactados
 
 ### Testes e métricas
-
 - Como validar a solução
 - Como medir sucesso
-
 ### Plano de rollout
 
 - Como será implantado (gradual, A/B, etc.)
@@ -347,7 +346,6 @@ Documentação não é estática.
 Design Doc não é burocracia.
 
 É uma ferramenta para:
-
 - Pensar melhor antes de construir
 - Comunicar decisões
 - Alinhar pessoas
@@ -390,7 +388,7 @@ Esta é a parte mais prática para os seus estudos. Domine esta sequência:
 
 # Design System na Google Parte 02
 
-## Padrão de Composição
+## Padrão de Composição 
 
 É quando você constrói um sistema juntando vários serviços menores, cada um responsável por uma parte.
 
@@ -400,41 +398,41 @@ Em vez de ter um sistema grande fazendo de tudo (monolito), você tem serviço d
 
 É qualquer parte do sistema que, **se cair, derruba tudo**. Por exemplo:
 
-- Um único servidor
-- Um único banco de dados
-- Um único broker MQTT
+* Um único servidor 
+* Um único banco de dados
+* Um único broker MQTT
 
 **Exemplo real:**
 
-Se seu backend Node.js está em **um único servidor** e ele cai:
+Se seu backend Node.js está em **um único servidor** e ele cai: 
 
-- Ninguém compra
-- Ninguém paga
-- Tudo para
+* Ninguém compra
+* Ninguém paga
+* Tudo para
 
 **Solução:**
 
-- Redundância (vários servidores)
-- Balanceamento de carga
-- Replicação de banco
+* Redundância (vários servidores)
+* Balanceamento de carga
+* Replicação de banco
 
-## Disaster Recovery
+## Disaster Recovery 
 
 É o plano de **como recuperar o sistema quando dá ruim de verdade**.
 
 **Cenários:**
 
-- Servidor morreu
-- Banco corrompeu
-- Região cloud caiu
+* Servidor morreu 
+* Banco corrompeu
+* Região cloud caiu 
 
 > Como eu volto ao normal rápido?
 
 **Estratégias:**
 
-- Backups automáticos
-- Replicação em outra região
-- Restore rápido
+* Backups automáticos
+* Replicação em outra região 
+* Restore rápido
 
 ## RPO e RTO
 
@@ -444,8 +442,8 @@ Ambos são métricas de desastre:
 
 Quanto de dado você pode perder?
 
-- RPO = 0 -> não pode perder nada
-- RPO = 1h -> pode perder até 1 hora de dados
+* RPO = 0 -> não pode perder nada
+* RPO = 1h -> pode perder até 1 hora de dados
 
 Exemplo:
 
@@ -453,16 +451,16 @@ Exemplo:
 
 ### RTO (Recovery Time Objective)
 
-Quanto tempo você pode ficar fora?
+Quanto tempo você pode ficar fora? 
 
-- RTO = 5min -> sistema tem que voltar em até 5min
-- RTO = 2h -> pode ficar fora por 2 horas
+* RTO = 5min -> sistema tem que voltar em até 5min
+* RTO = 2h -> pode ficar fora por 2 horas
 
 Exemplo:
 
 Seu brechó em live:
 
-- 2 horas offline = prejuízo direto
+* 2 horas offline = prejuízo direto
 
 ## Design Case
 
@@ -470,18 +468,18 @@ Seu brechó em live:
 
 Você pega um cenário:
 
-- "Sistema de vendas em live com PIX"
+* "Sistema de vendas em live com PIX"
 
 E define:
 
-- Como escalar
-- Como evitar falhas
-- Como processar pagamentos
-- Como lidar com picos
+* Como escalar
+* Como evitar falhas
+* Como processar pagamentos 
+* Como lidar com picos 
 
 É onde tudo isso aqui se junta.
 
-## Fan-Out Pattern
+## Fan-Out Pattern 
 
 Esse é MUITO importante em sistemas distribuídos.
 
@@ -493,33 +491,33 @@ Exemplo clássico:
 
 **Fan-out**:
 
-- Salva no banco
-- Gera PIX
-- Envia notificação
-- Atualiza dashboard
-- Manda evento para analytics
+* Salva no banco 
+* Gera PIX
+* Envia notificação 
+* Atualiza dashboard
+* Manda evento para analytics
 
 Tudo isso pode acontecer **em paralelo**, geralmente usando:
 
-- Filas (RabbitMQ, Kafka, Pub/Sub)
-- Eventos
+* Filas (RabbitMQ, Kafka, Pub/Sub)
+* Eventos
 
 ## Ligando Tudo (Visão Prática)
 
 Imagina seu sistema de vendas:
 
-1. Cliente compra -> evento disparado
+1. Cliente compra -> evento disparado 
 2. Fan-out distribui tarefas
-3. Serviços compostos executam cada parte
-4. Sistema evita SPOF com redundância
-5. Se der ruim -> entra Disaster Recovery
+3. Serviços compostos executam cada parte 
+4. Sistema evita SPOF com redundância 
+5. Se der ruim -> entra Disaster Recovery 
 6. RPO/RTO definem o quão rápido e seguro isso precisa ser
 
 Resumidamente:
 
-- **Composição** -> dividir sistemas em partes
-- **SPOF** -> ponto único que pode quebrar tudo
-- **Disaster Recovery** -> plano para quando tudo quebra
-- **RPO/RTO** -> quanto pode perder/ quanto pode ficar offline
-- **Design Case** -> aplicar tudo num problema real
-- **Fan-Out** -> um evento -> várias ações paralelas
+* **Composição** -> dividir sistemas em partes
+* **SPOF** -> ponto único que pode quebrar tudo 
+* **Disaster Recovery** -> plano para quando tudo quebra
+* **RPO/RTO** -> quanto pode perder/ quanto pode ficar offline
+* **Design Case** -> aplicar tudo num problema real 
+* **Fan-Out** -> um evento -> várias ações paralelas

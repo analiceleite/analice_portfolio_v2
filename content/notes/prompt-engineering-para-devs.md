@@ -37,7 +37,7 @@ Para gerar ADRs, a técnica mais indicada é o **Skeleton of Thought (SoT)**, po
 **Exemplo de Prompt:**
 
 > "Você é um Arquiteto de Software Sênior. Sua tarefa é gerar um **ADR** sobre a decisão de migrar a comunicação entre microserviços de REST para gRPC. **Estruture sua resposta obrigatoriamente com os seguintes tópicos**:
->
+> 
 > - **Título:** (ID e nome da decisão)
 > - **Status:** (Proposto, Aceito, Depreciado)
 > - **Contexto:** (Explique o problema técnico e as limitações atuais)
@@ -55,7 +55,6 @@ O **Contexto** refere-se ao conjunto de informações iniciais que você fornece
 Em resumo: enquanto o **ADR** é um **resultado final** (um documento estruturado), o **Contexto** é o **insumo inicial** (a moldura de informações) que você dá à IA para que ela consiga gerar esse ou qualquer outro resultado com precisão.
 
 Gostaria que eu criasse um **conjunto de flashcards** para você praticar como estruturar um contexto e um ADR usando essas técnicas?
-
 ## Gerador de Contexto
 
 A contextualização é uma das etapas fundamentais na fase de implementação. Para que o modelo entenda exatamente o cenário do projeto, recomenda-se o uso de **delimitadores estruturais** (estilo Anthropic) e a definição clara de **Persona e Objetivo**.
@@ -63,14 +62,14 @@ A contextualização é uma das etapas fundamentais na fase de implementação. 
 **Exemplo de Prompt:**
 
 > "Utilize as informações abaixo para contextualizar sua próxima tarefa de desenvolvimento:
->
+> 
 > - **Persona:** Desenvolvedor Sênior especializado em sistemas distribuídos e concorrência em Go.
 > - **Projeto:** API de processamento de pagamentos em tempo real.
 > - **Stack:** Go 1.21, PostgreSQL, Redis para cache e Kafka para mensageria.
 > - **Restrição:** O sistema deve suportar 5.000 requisições por segundo com latência inferior a 100ms.
->
+> 
 > Seu objetivo é analisar o trecho de código que enviarei a seguir e identificar possíveis gargalos de performance que violam a restrição de latência.
->
+> 
 > **Pense passo a passo (Chain of Thought)** e justifique cada ponto com base nas práticas recomendadas de Go antes de fornecer a solução final."
 
 ## Diferença entre as Abordagens
@@ -79,7 +78,6 @@ A contextualização é uma das etapas fundamentais na fase de implementação. 
 - **No Gerador de Contexto:** O foco é a **especificidade e delimitação** de informações para reduzir a ambiguidade e evitar que o modelo alucine fora das restrições do seu projeto.
 
 Você gostaria que eu gerasse um **template completo de ADR** baseado nessas técnicas para você copiar e usar no seu dia a dia?
-
 # Principais Técnicas de Prompting
 
 O documento detalha diversas estratégias para otimizar a interação com modelos de linguagem:
@@ -103,7 +101,7 @@ As técnicas podem ser aplicadas em diversas frentes:
 
 # Exemplos Práticos
 
-## Zero-Shot
+##  Zero-Shot
 
 Esta técnica consiste em dar uma instrução direta sem exemplos prévios.
 

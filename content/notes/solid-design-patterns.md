@@ -22,7 +22,6 @@ source: 'Obsidian'
 # SOLID com Robert C. Martin
 
 O SOLID é um conjunto de princípios para criar software mais fácil de:
-
 - manter
 - evoluir
 - testar
@@ -30,7 +29,6 @@ O SOLID é um conjunto de princípios para criar software mais fácil de:
 - entender
 
 O principal objetivo é evitar:
-
 - alto acoplamento
 - código confuso
 - efeitos colaterais inesperados
@@ -75,19 +73,19 @@ Ela pode mudar por vários motivos diferentes.
 ```javascript
 class UserService {
   createUser(user) {
-    console.log('Usuário criado');
+    console.log("Usuário criado");
   }
 }
 
 class EmailService {
   sendEmail(user) {
-    console.log('Email enviado');
+    console.log("Email enviado");
   }
 }
 
 class ReportService {
   generateReport() {
-    console.log('Relatório gerado');
+    console.log("Relatório gerado");
   }
 }
 ```
@@ -117,12 +115,12 @@ Você deve conseguir adicionar comportamentos novos sem alterar código já est�
 ```javascript
 class PaymentService {
   pay(type) {
-    if (type === 'pix') {
-      console.log('Pagamento PIX');
+    if (type === "pix") {
+      console.log("Pagamento PIX");
     }
 
-    if (type === 'credit_card') {
-      console.log('Pagamento cartão');
+    if (type === "credit_card") {
+      console.log("Pagamento cartão");
     }
   }
 }
@@ -142,13 +140,13 @@ Você precisa modificar a classe.
 ```javascript
 class PixPayment {
   pay() {
-    console.log('Pagamento PIX');
+    console.log("Pagamento PIX");
   }
 }
 
 class CreditCardPayment {
   pay() {
-    console.log('Pagamento cartão');
+    console.log("Pagamento cartão");
   }
 }
 
@@ -186,7 +184,6 @@ Evite:
 > “Subclasses devem poder substituir suas classes base sem quebrar o sistema.”
 
 Se algo herda de outra coisa:
-
 - deve se comportar corretamente como ela
 
 ### Errado
@@ -194,13 +191,13 @@ Se algo herda de outra coisa:
 ```javascript
 class Bird {
   fly() {
-    console.log('Voando');
+    console.log("Voando");
   }
 }
 
 class Penguin extends Bird {
   fly() {
-    throw new Error('Pinguim não voa');
+    throw new Error("Pinguim não voa");
   }
 }
 ```
@@ -215,13 +212,13 @@ class Bird {}
 
 class FlyingBird extends Bird {
   fly() {
-    console.log('Voando');
+    console.log("Voando");
   }
 }
 
 class Penguin extends Bird {
   swim() {
-    console.log('Nadando');
+    console.log("Nadando");
   }
 }
 ```
@@ -257,7 +254,7 @@ class Worker {
 
 class Robot extends Worker {
   eat() {
-    throw new Error('Robô não come');
+    throw new Error("Robô não come");
   }
 }
 ```
@@ -278,23 +275,22 @@ class Eatable {
 
 class HumanWorker extends Workable {
   work() {
-    console.log('Trabalhando');
+    console.log("Trabalhando");
   }
 
   eat() {
-    console.log('Comendo');
+    console.log("Comendo");
   }
 }
 
 class RobotWorker extends Workable {
   work() {
-    console.log('Robô trabalhando');
+    console.log("Robô trabalhando");
   }
 }
 ```
 
 Agora:
-
 - cada classe usa apenas o que precisa
 
 ### Regra prática
@@ -318,7 +314,7 @@ Classes de alto nível não devem depender diretamente de classes concretas.
 ```javascript
 class MySQLDatabase {
   save() {
-    console.log('Salvando no MySQL');
+    console.log("Salvando no MySQL");
   }
 }
 
@@ -343,13 +339,13 @@ Trocar banco = mudar código.
 ```javascript
 class MySQLDatabase {
   save() {
-    console.log('Salvando no MySQL');
+    console.log("Salvando no MySQL");
   }
 }
 
 class MongoDatabase {
   save() {
-    console.log('Salvando no Mongo');
+    console.log("Salvando no Mongo");
   }
 }
 
@@ -376,10 +372,9 @@ userService.createUser();
 ```
 
 Agora:
-
 - UserService não conhece implementação
 - fica desacoplado
-- fácil testar
+- fácil testar 
 - fácil trocar dependências
 
 ## Como tudo se conecta
@@ -395,19 +390,16 @@ Agora:
 ## O que Uncle Bob mais tenta ensinar
 
 O problema do software não é:
-
 - linguagem
 - framework
 - banco
 
 O problema é:
-
 - dependência errada
 - acoplamento
 - falta de organização
 
 SOLID existe para evitar:
-
 - rigidez
 - fragilidade
 - efeito cascata
@@ -484,7 +476,7 @@ Adaptar interfaces incompatíveis.
 Transformar Express em uma interface genérica:
 
 ```ts
-HttpServer;
+HttpServer
 ```
 
 Benefícios:
@@ -504,7 +496,7 @@ Adicionar funcionalidades sem alterar a classe original.
 Adicionar logs em um use case:
 
 ```ts
-LoggerDecorator;
+LoggerDecorator
 ```
 
 Usado para:
@@ -522,7 +514,7 @@ Separar acesso ao banco da regra de negócio.
 ### Exemplo
 
 ```ts
-ContractRepository;
+ContractRepository
 ```
 
 Benefícios:
@@ -570,7 +562,7 @@ Centralizar criação de objetos.
 Exemplo:
 
 ```ts
-InvoiceGenerationFactory.create(type);
+InvoiceGenerationFactory.create(type)
 ```
 
 Retorna:
@@ -631,7 +623,7 @@ Exemplo:
 API HTTP chama:
 
 ```ts
-GenerateInvoices;
+GenerateInvoices
 ```
 
 ## Composition Root
@@ -643,7 +635,7 @@ Centralizar criação das dependências.
 Normalmente:
 
 ```ts
-main.ts;
+main.ts
 ```
 
 Responsável por:
@@ -667,7 +659,9 @@ Exemplo:
 
 ```ts
 {
-  month, year, type;
+  month,
+  year,
+  type
 }
 ```
 
@@ -704,13 +698,15 @@ Evitar:
 
 ## Layer vs Tier
 
-**Layer** (camada) é uma divisão **lógica** — organização do código (ex: domain, application, infrastructure).
+**Layer** (camada) é uma divisão **lógica** — organização do código (ex: domain, application, infrastructure).  
 
 **Tier** (camada física) é uma divisão **física** — onde o código roda (ex: servidor web, banco de dados, cliente).
 
 Ou seja: layers são sobre **separação de responsabilidades** no código; tiers são sobre **separação física** em processos/máquinas diferentes. É possível ter múltiplas layers em uma única tier (ex: monólito).
 
 ## 3 Layers Architecture
+
+
 
 A **3 Layers Architecture** divide a aplicação em três camadas lógicas:
 
@@ -745,12 +741,12 @@ Organiza a lógica usando **classes que representam conceitos do negócio**, com
 
 ```ts
 class Contract {
-  payments: Payment[];
-
+  payments: Payment[]
+  
   getBalance(): number {
     // regra de negócio dentro da própria entidade
   }
-
+  
   generateInvoice(type: string): Invoice {
     // comportamento rico
   }
@@ -779,13 +775,13 @@ class ContractModule {
 
 ## Diferenças principais
 
-| Característica        | Transaction Script | Table Module          | Domain Model             |
-| --------------------- | ------------------ | --------------------- | ------------------------ |
-| Organização           | Funções/scripts    | Uma classe por tabela | Classes ricas do domínio |
-| Onde fica a regra     | No script          | Na classe módulo      | Dentro das entidades     |
-| Dados + comportamento | Separados          | Separados             | Juntos                   |
-| Complexidade ideal    | Baixa              | Média                 | Alta                     |
-| Reuso                 | Baixo              | Médio                 | Alto                     |
+| Característica | Transaction Script | Table Module | Domain Model |
+|---|---|---|---|
+| Organização | Funções/scripts | Uma classe por tabela | Classes ricas do domínio |
+| Onde fica a regra | No script | Na classe módulo | Dentro das entidades |
+| Dados + comportamento | Separados | Separados | Juntos |
+| Complexidade ideal | Baixa | Média | Alta |
+| Reuso | Baixo | Médio | Alto |
 
 **Regra prática**: comece com Transaction Script. Se começar a repetir código, migre para Table Module. Se a complexidade crescer muito, vá para Domain Model.
 
@@ -799,11 +795,11 @@ class InvoiceService {
 
   generateInvoices(input: GenerateInput): Invoice[] {
     // 1. busca dados (infra)
-    const contract = this.contractRepo.findById(input.contractId);
+    const contract = this.contractRepo.findById(input.contractId)
     // 2. delega regra de negócio ao domínio
-    const invoices = contract.generateInvoices(input.type);
+    const invoices = contract.generateInvoices(input.type)
     // 3. persiste (infra)
-    return this.contractRepo.saveInvoices(invoices);
+    return this.contractRepo.saveInvoices(invoices)
   }
 }
 ```
@@ -812,17 +808,17 @@ Ela **coordena**, mas não contém regra de negócio — a regra fica no Domain 
 
 ## Por que Service Layer ≠ Domain Model
 
-| Service Layer                                | Domain Model                      |
-| -------------------------------------------- | --------------------------------- |
-| Orquestra operações                          | Contém regras de negócio          |
-| Depende de serviços externos (repos, emails) | Não depende de infraestrutura     |
-| Lida com transações, segurança               | Lida apenas com lógica do domínio |
-| É "sem estado" (stateless)                   | Entidades têm estado              |
-| Chama o domínio                              | É chamado pela service            |
+| Service Layer | Domain Model |
+|---|---|
+| Orquestra operações | Contém regras de negócio |
+| Depende de serviços externos (repos, emails) | Não depende de infraestrutura |
+| Lida com transações, segurança | Lida apenas com lógica do domínio |
+| É "sem estado" (stateless) | Entidades têm estado |
+| Chama o domínio | É chamado pela service |
 
 **Resumo**: Service Layer é um **orquestrador** que coordena o fluxo; Domain Model é onde a **regra de negócio** de fato vive. O erro comum é colocar regra de negócio na Service Layer — isso vira Transaction Script com nome bonito e perde os benefícios do Domain Model (reuso, coesão, testabilidade).
 
-## Service Layer vs Transaction Script
+## Service Layer vs Transaction Script 
 
 Ambos organizam a lógica em **procedimentos**, mas a diferença é onde a **regra de negócio** vive:
 
@@ -830,18 +826,20 @@ Ambos organizam a lógica em **procedimentos**, mas a diferença é onde a **reg
 
 - **Service Layer**: as regras de negócio estão **no Domain Model** (entidades ricas). A Service Layer **apenas orquestra** — chama o domínio, gerencia transações, infraestrutura.
 
-| Transaction Script                                 | Service Layer                                 |
-| -------------------------------------------------- | --------------------------------------------- |
+| Transaction Script | Service Layer |
+|---|---|
 | Orquestração + regra de negócio **no mesmo lugar** | Orquestração **separada** da regra de negócio |
-| Lógica procedural direta                           | Delega para entidades ricas                   |
-| Sem Domain Model por baixo                         | Domain Model por baixo                        |
-| Reuso baixo (regra duplicada fácil)                | Reuso alto (regra centralizada no domínio)    |
+| Lógica procedural direta | Delega para entidades ricas |
+| Sem Domain Model por baixo | Domain Model por baixo |
+| Reuso baixo (regra duplicada fácil) | Reuso alto (regra centralizada no domínio) |
 
 **Resumo**: Service Layer **é um Transaction Script** se você colocar a regra de negócio dentro dela. A diferença real não é o padrão em si, mas se existe um **Domain Model** para absorver as regras. Service Layer sem Domain Model é só Transaction Script com nome diferente.
 
-## Gateway
+## Gateway 
 
 Objeto que encapsula e acessa sistemas ou recursos externos
+
+
 
 ## Row Data Gateway
 
@@ -849,24 +847,18 @@ Um objeto que **representa uma linha** de uma tabela do banco. Cada instância =
 
 ```ts
 class ContractGateway {
-  id: number;
-  amount: number;
-  period: number;
+  id: number
+  amount: number
+  period: number
 
-  insert() {
-    /* INSERT no banco */
-  }
-  update() {
-    /* UPDATE */
-  }
-  delete() {
-    /* DELETE */
-  }
+  insert() { /* INSERT no banco */ }
+  update() { /* UPDATE */ }
+  delete() { /* DELETE */ }
 }
 
-const contract = new ContractGateway();
-contract.amount = 5000;
-contract.insert();
+const contract = new ContractGateway()
+contract.amount = 5000
+contract.insert()
 ```
 
 ## Table Data Gateway
@@ -875,33 +867,23 @@ Uma classe que encapsula **todas as operações SQL de uma tabela inteira**. Nã
 
 ```ts
 class ContractGateway {
-  find(id: number): any {
-    /* SELECT * FROM contract WHERE id = ? */
-  }
-  findAll(): any[] {
-    /* SELECT * FROM contract */
-  }
-  insert(data: ContractData) {
-    /* INSERT */
-  }
-  update(id: number, data: ContractData) {
-    /* UPDATE */
-  }
-  delete(id: number) {
-    /* DELETE */
-  }
+  find(id: number): any { /* SELECT * FROM contract WHERE id = ? */ }
+  findAll(): any[] { /* SELECT * FROM contract */ }
+  insert(data: ContractData) { /* INSERT */ }
+  update(id: number, data: ContractData) { /* UPDATE */ }
+  delete(id: number) { /* DELETE */ }
 }
 
-const contract = ContractGateway.find(1);
+const contract = ContractGateway.find(1)
 ```
 
 ## Diferença principal
 
-| Row Data Gateway                            | Table Data Gateway                                  |
-| ------------------------------------------- | --------------------------------------------------- |
-| 1 instância = 1 linha                       | 1 instância = tabela inteira                        |
-| Objeto com identidade própria               | Métodos estáticos ou instância única                |
-| Dados + SQL no mesmo objeto                 | SQL centralizado, dados separados                   |
+| Row Data Gateway | Table Data Gateway |
+|---|---|
+| 1 instância = 1 linha | 1 instância = tabela inteira |
+| Objeto com identidade própria | Métodos estáticos ou instância única |
+| Dados + SQL no mesmo objeto | SQL centralizado, dados separados |
 | Você chama `.insert()` na própria instância | Você chama `Gateway.insert(data)` passando os dados |
 
 **Resumo**: Row Data Gateway trata cada registro como um **objeto** (similar a ORM). Table Data Gateway trata a **tabela** inteira como uma **interface** de operações SQL. Ambos são camadas de acesso a dados que mantêm a lógica de banco separada do resto.
@@ -910,10 +892,11 @@ const contract = ContractGateway.find(1);
 
 **Active Record** é um padrão de arquitetura de software (descrito por Martin Fowler) onde um objeto encapsula tanto os **dados** quanto o **comportamento** de uma linha do banco de dados. Cada instância da classe representa uma linha na tabela, e a própria classe fornece métodos para consultar, criar, atualizar e deletar registros (CRUD).
 
+
+
 É o padrão ORM (Object-Relational Mapping) mais conhecido, implementado pelo **Rails** (Ruby on Rails), mas também presente em frameworks de outras linguagens (Laravel/Eloquent no PHP, Entity Framework no .NET, etc.).
 
 **Características principais:**
-
 - Tabela → Classe, Linha → Objeto, Coluna → Atributo
 - Herança de `ActiveRecord::Base` (no Rails) dá acesso automático a métodos como `.find()`, `.where()`, `.save()`, `.destroy()`
 - Convenção sobre configuração: nome da tabela é o plural snake_case do nome da classe
@@ -938,6 +921,8 @@ Active Record é ótimo para CRUD simples, protótipos e MVPs. Para sistemas com
 ## Data Mapper
 
 **Data Mapper** é um padrão de arquitetura onde uma camada separada (o **Mapper**) é responsável por transferir dados entre **objetos em memória** e o **banco de dados**, sem que os objetos saibam que o banco existe. As entidades são classes Puras (POJOs/POCOs) — simples structs com atributos e métodos de negócio, sem herança de framework ou métodos de persistência.
+
+
 
 **Diferença chave vs Active Record:**
 
@@ -970,11 +955,10 @@ UoW                  Banco
 ```
 
 **Relação entre os dois:**
-
 - **UoW implementa atomicidade** — ele rastreia todas as operações e as executa dentro de uma única transação de banco.
 - Exemplos: `DbContext.SaveChanges()` no EF Core, `Hibernate Session.flush()`, `SQLAlchemy session.commit()`.
 
-**Em suma:** Atomicidade é o _o quê_ (tudo ou nada), Unit of Work é o _como_ (rastreia mudanças e as aplica em lote).
+**Em suma:** Atomicidade é o *o quê* (tudo ou nada), Unit of Work é o *como* (rastreia mudanças e as aplica em lote).
 
 O Unit of Work gerencia um **conjunto de operações** sobre entidades rastreadas. As operações principais são:
 
@@ -989,12 +973,10 @@ O Unit of Work gerencia um **conjunto de operações** sobre entidades rastreada
 6. **Get Dirty Objects** — retorna lista de objetos modificados (útil para logging ou auditoria)
 
 Algumas implementações incluem também:
-
 - **Register Clean** — marca entidade como "não modificada" (útil após carregar do banco)
 - **Merge** — sincroniza uma entidade destacada de volta ao contexto de rastreamento
 
 **Fluxo típico:**
-
 ```
 uow = new UnitOfWork(dbConnection)
 uow.registerNew(user1)
@@ -1013,7 +995,6 @@ session.get(User, 1) → retorna objeto #1 (mesma referência!)
 ```
 
 **Problema que resolve:**
-
 ```python
 u1 = repo.find(1)    # User(id=1, name="João")
 u1.name = "Maria"
@@ -1023,14 +1004,12 @@ print(u2.name)        # "João" ← inconsistência!
 ```
 
 **Como funciona:**
-
 - Mantém um `Map<id, object>` (cache de identidade) dentro do Unit of Work ou Sessão
 - Antes de consultar o banco, verifica se o objeto já está no mapa
 - Se sim, retorna a referência existente (pulando a query)
 - Se não, carrega do banco, registra no mapa e retorna
 
 **Relação com Unit of Work:**
-
 - **UoW + Identity Map** andam juntos: UoW rastreia mudanças, Identity Map garante unicidade de instâncias
 - Exemplos: `Hibernate Session`, `EF Core DbContext`, `SQLAlchemy session`
 
@@ -1047,16 +1026,15 @@ pedido.itens               → neste momento: SELECT * FROM itens WHERE pedido_i
 
 **Implementações comuns:**
 
-| Padrão            | Descrição                                                             |
-| ----------------- | --------------------------------------------------------------------- |
-| **Proxy**         | Cria um placeholder que intercepta acesso ao getter e dispara a query |
-| **Ghost**         | Carrega objeto com campos vazios; preenche ao primeiro acesso         |
-| **Virtual Proxy** | Objeto falso com mesma interface; ao usar, carrega o real             |
+| Padrão | Descrição |
+|---|---|
+| **Proxy** | Cria um placeholder que intercepta acesso ao getter e dispara a query |
+| **Ghost** | Carrega objeto com campos vazios; preenche ao primeiro acesso |
+| **Virtual Proxy** | Objeto falso com mesma interface; ao usar, carrega o real |
 
 **Vantagens:** performance (não carrega o que não usa), menos memória.
 
 **Desvantagens:**
-
 - **N+1 Queries** — acessar `pedido.cliente.nome` em loop dispara N queries
 - Conexão precisa estar aberta no momento do acesso (fora de transação pode quebrar)
 - Comportamento imprevisível (lazy exceptions)
@@ -1088,16 +1066,14 @@ class UserRepository:
 5. **Transações centralizadas** — combinado com Unit of Work, garante atomicidade sem espalhar lógica transacional pelos serviços.
 
 **Quando você precisa de Repository:**
-
 - Aplicações com lógica de negócio não trivial
 - Você quer trocar de banco/ORM sem reescrever metade do código
 - Domínio modelado com DDD (Agregados, Value Objects)
 - Testes unitários são prioridade
 
 **Quando Repository é exagero (prefira Active Record direto):**
-
 - CRUD puro, protótipos, MVPs, ferramentas internas simples
 - A fonte de dados nunca vai mudar
 - A equipe é pequena e a complexidade extra não compensa
 
-**Relação com Data Mapper:** Repository geralmente usa Data Mapper internamente. O Repository é a _interface pública_ (abstração de coleção), o Mapper é o _mecanismo interno_ que traduz objetos para SQL.
+**Relação com Data Mapper:** Repository geralmente usa Data Mapper internamente. O Repository é a *interface pública* (abstração de coleção), o Mapper é o *mecanismo interno* que traduz objetos para SQL.
