@@ -21,17 +21,21 @@ Stack: .NET, C#, Angular, TypeScript, GCP, Cloud Run, GKE, Kubernetes, Terraform
 
 ### Técnica de Soluções Digitais — Bosch Brasil (Jan 2025 - Jun 2026)
 
-Construção e evolução de soluções full stack para projetos internos e globais, usando Angular, Node.js, Java, C# e bancos relacionais.
+Desenvolvimento de software para soluções corporativas globais, com foco em automação, sistemas internos e aplicações críticas de alto desempenho. Atuei na divisão Service Solutions, dentro do portfólio de soluções globais voltadas a Customer Experience, participando de projetos de inovação de alto impacto em escala global.
 
 Principais atividades:
 
-- Desenvolvimento de interfaces e APIs para sistemas corporativos.
-- Integração de sistemas internos com APIs e serviços externos.
-- Apoio em modelagem, manutenção e otimização de bancos PostgreSQL e MySQL.
-- Participação em projetos de inovação com times globais.
-- Aplicação de boas práticas de Clean Code, SOLID, code review e versionamento com Git.
+- Desenvolvimento de soluções Full Stack com Node.js/Express, Java, C#, .NET, Angular e TypeScript, construindo sistemas robustos, escaláveis e alinhados às necessidades do negócio.
+- Atuação em times globais, contribuindo em projetos de inovação de alto impacto e transformando ideias complexas em soluções técnicas eficientes.
+- Contribuição para a definição de arquitetura limpa e aplicação de boas práticas de codificação, garantindo eficiência, manutenção e evolução sustentável do código.
+- Colaboração com equipes de produto, design e operações para transformar requisitos e interfaces complexas em funcionalidades eficientes e amigáveis ao usuário.
+- Integração de sistemas internos com APIs e serviços externos, mantendo segurança, escalabilidade e baixo acoplamento.
+- Modelagem e gerenciamento de bancos de dados relacionais, com foco em integridade, performance e consistência dos dados.
+- Condução de revisões de código e apoio a outros desenvolvedores na aplicação de melhores práticas, com foco em qualidade e sustentabilidade do software.
+- Automação de fluxos de Inteligência Artificial com n8n, conectando sistemas e processos de forma eficiente.
+- Desenvolvimento de soluções escaláveis, seguras e sustentáveis alinhadas às metas estratégicas da empresa.
 
-Stack: Angular, Node.js, Java, C#, PostgreSQL, MySQL, REST APIs, Git, Clean Code, SOLID.
+Stack: Python, Java, C#, Angular, TypeScript, Node.js, .NET, PostgreSQL, MySQL, Docker, REST APIs, SCSS, Tailwind, Jest, Cypress, Clean Architecture, DDD, TDD, n8n.
 
 ### Aprendiz de Soluções Digitais — Bosch Brasil (Ago 2023 - Jan 2025)
 

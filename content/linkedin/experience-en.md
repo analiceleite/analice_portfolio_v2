@@ -21,17 +21,21 @@ Stack: .NET, C#, Angular, TypeScript, GCP, Cloud Run, GKE, Kubernetes, Terraform
 
 ### Digital Solutions Technician — Bosch Brazil (Jan 2025 - Jun 2026)
 
-Built and evolved full-stack solutions for internal and global corporate projects using Angular, Node.js, Java, C#, and relational databases.
+Software development for global corporate solutions, focused on automation, internal systems, and high-performance critical applications. Worked in the Service Solutions division, within the portfolio of global solutions for Customer Experience, contributing to high-impact innovation projects at global scale.
 
 Main activities:
 
-- Development of interfaces and APIs for corporate systems.
-- Integration of internal systems with APIs and external services.
-- Support in modeling, maintaining, and optimizing PostgreSQL and MySQL databases.
-- Participation in innovation projects with global teams.
-- Application of Clean Code, SOLID, code review, and Git versioning practices.
+- Developed Full Stack solutions with Node.js/Express, Java, C#, .NET, Angular, and TypeScript, building robust, scalable systems aligned with business needs.
+- Worked in global teams, contributing to high-impact innovation projects and turning complex ideas into efficient technical solutions.
+- Contributed to clean architecture definition and coding best practices, improving code efficiency, maintainability, and sustainable evolution.
+- Collaborated with product, design, and operations teams to transform complex requirements and interfaces into efficient, user-friendly features.
+- Integrated internal systems with APIs and external services while keeping security, scalability, and low coupling as priorities.
+- Modeled and managed relational databases with a focus on data integrity, performance, and consistency.
+- Conducted code reviews and supported other developers in applying best practices, focusing on software quality and sustainability.
+- Automated AI workflows with n8n, connecting systems and processes efficiently.
+- Built scalable, secure, and sustainable solutions aligned with project needs and company strategic goals.
 
-Stack: Angular, Node.js, Java, C#, PostgreSQL, MySQL, REST APIs, Git, Clean Code, SOLID.
+Stack: Python, Java, C#, Angular, TypeScript, Node.js, .NET, PostgreSQL, MySQL, Docker, REST APIs, SCSS, Tailwind, Jest, Cypress, Clean Architecture, DDD, TDD, n8n.
 
 ### Digital Solutions Apprentice — Bosch Brazil (Aug 2023 - Jan 2025)
 

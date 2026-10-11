@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const os = require('os');
 const { execSync, exec } = require('child_process');
 
 const sourceDir = path.join(__dirname, '..', 'content', 'linkedin');
@@ -25,11 +26,19 @@ function parseFrontmatter(content) {
 }
 
 function copyToClipboard(text) {
-  // Windows: PowerShell Set-Clipboard via base64 to avoid quoting/encoding issues with accents
-  const b64 = Buffer.from(text, 'utf16le').toString('base64');
-  execSync(
-    `powershell -NoProfile -Command "[Text.Encoding]::Unicode.GetString([Convert]::FromBase64String('${b64}')) | Set-Clipboard"`,
-  );
+  // Windows command lines have a small size limit; use a temp file for long LinkedIn blocks.
+  const tmp = path.join(os.tmpdir(), `linkedin-${Date.now()}.txt`);
+  fs.writeFileSync(tmp, text, 'utf8');
+  try {
+    execSync(
+      `powershell -NoProfile -Command "Get-Content -LiteralPath '${tmp.replace(
+        /'/g,
+        '\'\'',
+      )}' -Raw | Set-Clipboard"`,
+    );
+  } finally {
+    fs.rmSync(tmp, { force: true });
+  }
 }
 
 function openBrowser(url) {
