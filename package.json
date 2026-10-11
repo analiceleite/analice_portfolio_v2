@@ -17,6 +17,7 @@
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "sync:notes": "node scripts/sync-obsidian-notes.js",
+    "sync:linkedin": "node scripts/sync-linkedin.js",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
