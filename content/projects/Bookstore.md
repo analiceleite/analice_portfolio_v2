@@ -6,7 +6,7 @@ external: ''
 tech:
   - Python
   - Django
-showInProjects: true
+showInProjects: false
 ---
 
 A bookstore management system built with Python and Django for inventory and sales tracking.

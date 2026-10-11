@@ -1,5 +1,5 @@
 ---
-date: '2025-01-10'
+date: '2024-04-01'
 title: 'FocusFlow Timer'
 cover: './demo.png'
 github: 'https://github.com/analiceleite/focusflow'
@@ -13,4 +13,4 @@ tech:
   - Canvas API + Picture-in-Picture API
 ---
 
-A productivity timer app with Picture-in-Picture, customizable timers, dark/ light themes, statistics dashboard and PWA capabilities.
+A public SaaS-style productivity platform where users can sign up and use Pomodoro and stopwatch workflows freely. It combines Firebase authentication, real-time multi-device sync, Picture-in-Picture, Spotify integration, statistics dashboard, light/dark themes, and PWA capabilities.

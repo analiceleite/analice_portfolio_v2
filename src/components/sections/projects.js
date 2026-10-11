@@ -214,6 +214,7 @@ const Projects = () => {
   const projectInner = node => {
     const { frontmatter, html } = node;
     const { github, external, title, tech } = frontmatter;
+    const projectUrl = external || github || '#';
 
     return (
       <div className="project-inner">
@@ -242,7 +243,7 @@ const Projects = () => {
           </div>
 
           <h3 className="project-title">
-            <a href={external} target="_blank" rel="noreferrer">
+            <a href={projectUrl} target="_blank" rel="noreferrer">
               {title}
             </a>
           </h3>

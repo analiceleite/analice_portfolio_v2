@@ -1,4 +1,5 @@
 ---
+showInProjects: false
 date: '2025-01-10'
 title: 'Pomodoro Timer'
 cover: './demo.png'

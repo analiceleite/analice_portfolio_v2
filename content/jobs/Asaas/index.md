@@ -1,6 +1,7 @@
 ---
 date: '2023-08-15'
 title: 'Internal Sales Assistant'
+tab: 'Asaas - Assistant'
 company: 'Asaas Financial Management'
 location: 'Brazil'
 range: 'December 2022 - August 2023'

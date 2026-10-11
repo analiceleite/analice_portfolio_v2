@@ -6,7 +6,7 @@ external: 'https://analice-portfolio.vercel.app'
 tech:
   - TypeScript
   - Next.js
-showInProjects: true
+showInProjects: false
 ---
 
 Personal portfolio showcasing projects, built with Next.js and TypeScript.

@@ -7,7 +7,7 @@ tech:
   - Java
   - Spring Boot
   - REST API
-showInProjects: true
+showInProjects: false
 ---
 
 A learning-focused REST API built with Spring Boot for managing game data.

@@ -7,7 +7,7 @@ tech:
   - HTML
   - CSS
   - JavaScript
-showInProjects: true
+showInProjects: false
 ---
 
 A stylish digital clock built with HTML, CSS, and vanilla JavaScript.

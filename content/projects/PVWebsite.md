@@ -7,7 +7,7 @@ tech:
   - Angular
   - SCSS
   - TypeScript
-showInProjects: true
+showInProjects: false
 ---
 
 A fully functional website for a local Christian church, supporting online presence with events, services, and community features.

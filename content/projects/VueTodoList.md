@@ -6,7 +6,7 @@ external: 'https://todo-list-vue-jet-pi.vercel.app/'
 tech:
   - Vue.js
   - JavaScript
-showInProjects: true
+showInProjects: false
 ---
 
 A task management app built with Vue.js featuring add, edit, complete, and delete operations.

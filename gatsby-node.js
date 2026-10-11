@@ -10,8 +10,32 @@ const _ = require('lodash');
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
   const typeDefs = `
-    type MarkdownRemarkFrontmatter {
+    type MarkdownRemarkFrontmatter @dontInfer {
       cta: String
+      cover: File @fileByRelativePath
+      category: String
+      company: String
+      date: Date @dateformat
+      description: String
+      draft: Boolean
+      external: String
+      github: String
+      language: String
+      location: String
+      order: Int
+      published: Boolean
+      range: String
+      related: [String]
+      showInProjects: Boolean
+      slug: String
+      source: String
+      status: String
+      tags: [String]
+      tab: String
+      tech: [String]
+      title: String
+      updatedAt: Date @dateformat
+      url: String
     }
   `;
   createTypes(typeDefs);
@@ -20,12 +44,29 @@ exports.createSchemaCustomization = ({ actions }) => {
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
   const postTemplate = path.resolve(`src/templates/post.js`);
+  const noteTemplate = path.resolve(`src/templates/note.js`);
   const tagTemplate = path.resolve('src/templates/tag.js');
 
   const result = await graphql(`
     {
       postsRemark: allMarkdownRemark(
         filter: { fileAbsolutePath: { regex: "/content/posts/" } }
+        sort: { order: DESC, fields: [frontmatter___date] }
+        limit: 1000
+      ) {
+        edges {
+          node {
+            frontmatter {
+              slug
+            }
+          }
+        }
+      }
+      notesRemark: allMarkdownRemark(
+        filter: {
+          fileAbsolutePath: { regex: "/content/notes/" }
+          frontmatter: { published: { eq: true } }
+        }
         sort: { order: DESC, fields: [frontmatter___date] }
         limit: 1000
       ) {
@@ -53,11 +94,20 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   // Create post detail pages
   const posts = result.data.postsRemark.edges;
+  const notes = result.data.notesRemark.edges;
 
   posts.forEach(({ node }) => {
     createPage({
       path: node.frontmatter.slug,
       component: postTemplate,
+      context: {},
+    });
+  });
+
+  notes.forEach(({ node }) => {
+    createPage({
+      path: node.frontmatter.slug,
+      component: noteTemplate,
       context: {},
     });
   });

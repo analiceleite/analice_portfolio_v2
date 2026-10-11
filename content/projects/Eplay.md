@@ -7,7 +7,7 @@ tech:
   - React
   - Redux
   - TypeScript
-showInProjects: true
+showInProjects: false
 ---
 
 A gaming shop platform built with React and Redux, featuring a fake API for product listing and cart management.

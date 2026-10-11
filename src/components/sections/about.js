@@ -124,15 +124,14 @@ const About = () => {
   }, []);
 
   const skills = [
-    'TypeScript',
-    'React',
+    '.NET',
     'Angular',
-    'Node.js',
-    'Python',
-    'Java',
-    'C#',
+    'GCP',
+    'Terraform',
+    'CI/CD',
     'PostgreSQL',
     'Docker',
+    'Kubernetes',
     'Clean Architecture',
   ];
 
@@ -144,19 +143,20 @@ const About = () => {
         <StyledText>
           <div>
             <p>
-              Hey! I'm Analice, a full-stack developer passionate about creating user-centered
-              digital experiences. My journey in tech started with a simple mission: build solutions
-              that prioritize real user needs. I discovered that great products come from
-              understanding the people who use them.
+              Hey! I'm Analice, a full-stack developer passionate about building useful,
+              well-structured software. I like working close to real problems, turning messy
+              workflows into products with clear UX, reliable backends, and maintainable
+              architecture.
             </p>
 
             <p>
               Today, I'm at <a href="https://www.bosch.com.br/">Bosch Brazil</a>, where I architect
-              and develop scalable platforms for customer services worldwide. My focus is on
-              combining front-end excellence with robust back-end architecture, always emphasizing
-              technical quality, performance optimization, and clean code principles. I'm also
-              pursuing a Lato Sensu MBA in Software Architecture while studying Systems Analysis and
-              Development.
+              and develop scalable platforms for customer services worldwide, while also supporting
+              DevOps work with GCP, Kubernetes, Terraform, Docker, CI/CD pipelines, and production
+              release management. Outside work, I build projects that explore full-stack product
+              development, backend design, automation, and AI workflows. I hold a degree in Systems
+              Analysis and Development and am currently pursuing a Lato Sensu MBA in Software
+              Architecture.
             </p>
 
             <p>

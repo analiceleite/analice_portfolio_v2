@@ -1,16 +1,18 @@
 ---
 date: '2024-01-20'
-title: 'Senior Digital Solutions Technician'
+title: 'Software Development Analyst'
+tab: 'Bosch - Analyst'
 company: 'Bosch Brazil'
 location: 'Brazil'
-range: 'August 2023 - Present'
+range: 'June 2026 - Present'
 url: 'https://www.bosch.com.br/'
 ---
 
-- Built and maintained full-stack solutions using Node.js/Express, Java, C#, and Angular, applying clean architecture principles and SOLID best practices
-- Collaborated with product, design, and operations teams to deliver intuitive, user-friendly features for global innovation projects
-- Integrated external APIs, designed and maintained relational databases (PostgreSQL, MySQL), and ensured database optimization
-- Conducted code reviews and established quality standards across team projects
-- Automated AI workflows and business processes using n8n, improving efficiency and reducing manual work
-- Contributed to high-impact innovation projects in global teams, focusing on scalability and performance
-- Worked with Docker and Azure for containerization and cloud deployment
+- Develop full-stack software for global corporate solutions using Node.js/Express, Java, C#, .NET, Angular, TypeScript, and relational databases
+- Design scalable architectures, integrations, and internal platforms focused on automation, customer experience, and high-performance business processes
+- Collaborate with global product, design, and operations teams to turn complex requirements into reliable, user-friendly features
+- Apply clean architecture, DDD, TDD, code review practices, and automated testing with Jest and Cypress to improve maintainability and quality
+- Automate AI-enabled workflows with n8n, connecting internal systems and processes with secure, low-coupling integrations
+- Own DevOps responsibilities across GCP, Cloud Run, GKE, Kubernetes, and CI/CD pipelines for production software deployments in DEV, QA, and PROD environments
+- Support release management using SemVer, coordinating versioning and deployment readiness across environments
+- Work with PostgreSQL, MySQL, Docker, REST APIs, SCSS, Tailwind, and cloud-oriented deployment practices

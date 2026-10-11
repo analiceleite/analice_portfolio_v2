@@ -61,12 +61,14 @@ const Hero = () => {
 
   const one = <h1>Hi, my name is</h1>;
   const two = <h2 className="big-heading">Analice Leite.</h2>;
-  const three = <h3 className="big-heading">I craft web experiences.</h3>;
+  const three = <h3 className="big-heading">I build full-stack systems.</h3>;
   const four = (
     <>
       <p>
-        I'm a full-stack developer with a passion for front-end, focused on building user-centered
-        solutions at scale. At{' '}
+        I'm a full-stack developer focused on backend architecture, AI-assisted workflows, and
+        reliable products people actually use. My recent work includes Worship Flow, a production
+        app for worship teams with 30+ users, role-based auth, Supabase RLS, external integrations,
+        and automated email notifications. At{' '}
         <a href="https://www.bosch.com.br/" target="_blank" rel="noreferrer">
           Bosch Brazil
         </a>
@@ -76,12 +78,8 @@ const Hero = () => {
     </>
   );
   const five = (
-    <a
-      className="email-link"
-      href="https://github.com/analiceleite"
-      target="_blank"
-      rel="noreferrer">
-      Check out my github!
+    <a className="email-link" href="#projects">
+      View my projects
     </a>
   );
 

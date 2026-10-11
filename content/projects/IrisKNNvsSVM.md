@@ -7,7 +7,7 @@ tech:
   - Python
   - Scikit-learn
   - Machine Learning
-showInProjects: true
+showInProjects: false
 ---
 
 Comparative analysis between K-Nearest Neighbors and Support Vector Machine algorithms on the Iris dataset.

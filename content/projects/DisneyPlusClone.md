@@ -8,7 +8,7 @@ tech:
   - CSS
   - JavaScript
   - Gulp
-showInProjects: true
+showInProjects: false
 ---
 
 A Disney+ clone replicating the streaming platform interface, built with HTML, CSS, JavaScript, and Gulp for task automation.
