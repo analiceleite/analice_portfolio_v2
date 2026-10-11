@@ -8,13 +8,12 @@
  * saved in .linkedin-profile/, so later runs reuse it without logging in again.
  *
  * Usage:
- *   node scripts/linkedin-auto.js                 # menu interativo
+ *   node scripts/linkedin-auto.js                 # updates headline + about-pt
  *   node scripts/linkedin-auto.js --section about-pt
  *   node scripts/linkedin-auto.js --section about-pt --dry
  */
 const fs = require('fs');
 const path = require('path');
-const readline = require('readline');
 
 const { chromium } = require('playwright');
 
@@ -68,18 +67,19 @@ function loadSections() {
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 const rnd = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
-async function humanType(page, selector, text) {
-  const el = await page.waitForSelector(selector, { timeout: 15000 });
-  await el.click();
-  await sleep(rnd(200, 500));
-  await el.fill(''); // clear
-  await sleep(rnd(200, 400));
-  // type in small chunks with variable delay to mimic a person
-  const chunks = text.match(/.{1,8}/gs) || [text];
-  for (const chunk of chunks) {
-    await el.type(chunk, { delay: rnd(25, 90) });
-    await sleep(rnd(10, 60));
+async function gotoWithRetry(page, url, options = {}, attempts = 3) {
+  let lastError;
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    try {
+      await page.goto(url, options);
+      return;
+    } catch (error) {
+      lastError = error;
+      console.warn(`Falha ao abrir ${url} (tentativa ${attempt}/${attempts}): ${error.message}`);
+      await sleep(3000 * attempt);
+    }
   }
+  throw lastError;
 }
 
 async function pasteText(page, text) {
@@ -92,8 +92,23 @@ async function pasteText(page, text) {
   await page.keyboard.press(process.platform === 'darwin' ? 'Meta+V' : 'Control+V');
 }
 
+async function replaceProseMirrorText(page, text) {
+  const editor = page.locator('div[contenteditable="true"].ProseMirror').first();
+  await editor.waitFor({ state: 'visible', timeout: 15000 });
+  await editor.click();
+  await sleep(rnd(400, 800));
+  await page.keyboard.press(process.platform === 'darwin' ? 'Meta+A' : 'Control+A');
+  await sleep(rnd(200, 400));
+  await pasteText(page, text);
+}
+
 async function isLoggedIn(page) {
-  await page.goto(LINKEDIN, { waitUntil: 'domcontentloaded' });
+  const cookies = await page.context().cookies(LINKEDIN);
+  if (cookies.some(cookie => cookie.name === 'li_at')) {
+    return true;
+  }
+
+  await gotoWithRetry(page, PROFILE_URL, { waitUntil: 'domcontentloaded' });
   await sleep(rnd(1500, 2500));
   const url = page.url();
   if (url.includes('/login') || url.includes('/checkpoint') || url.includes('/uas/login')) {
@@ -112,83 +127,70 @@ async function ensureLogin(context) {
     return true;
   }
   console.log(
-    '\n>>> Faça login no LinkedIn na janela aberta. O script espera até detectar o login.',
+    '\n>>> Faça login no LinkedIn na janela aberta. O script vai detectar automaticamente.',
   );
-  console.log('>>> Depois de logar, volte aqui e pressione Enter.');
-  const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
-  await new Promise(resolve =>
-    rl.question('', () => {
-      rl.close();
-      resolve();
-    }),
-  );
-  // re-check
-  const again = await isLoggedIn(page);
+  console.log('>>> Não precisa pressionar Enter. Aguarde até 3 minutos.');
+
+  const deadline = Date.now() + 180000;
+  let again = false;
+  while (Date.now() < deadline && !again) {
+    await sleep(3000);
+    again = await isLoggedIn(page);
+  }
+
   await page.close();
   if (!again) {
-    console.warn('Ainda não detectei login. Vamos tentar seguir de qualquer forma.');
+    throw new Error('Login não detectado após 3 minutos. Rode novamente quando estiver logada.');
   }
   return true;
 }
 
 // ---------- section handlers ----------
 async function editHeadline(page, text, dry) {
-  // Headline lives inside the "Edit intro" modal (top card -> pencil -> Headline field)
-  await page.goto(`${PROFILE_URL}/edit/`, { waitUntil: 'domcontentloaded' });
-  await sleep(rnd(2000, 3000));
-  // LinkedIn may redirect to the profile page; open the intro edit modal
-  const pencil = await page.$('button[aria-label*="Edit intro" i], button[aria-label*="Editar" i]');
-  if (!pencil) {
-    // Fallback: go straight to the edit URL
-    await page.goto(`${PROFILE_URL}/edit/`, { waitUntil: 'domcontentloaded' });
-    await sleep(rnd(1500, 2500));
-  } else {
-    await pencil.click();
-    await sleep(rnd(1500, 2500));
-  }
-  const headlineSel = 'input[name*="headline" i], textarea[name*="headline" i], #headline';
+  await gotoWithRetry(page, `${PROFILE_URL}/`, { waitUntil: 'domcontentloaded' });
+  await sleep(rnd(2500, 4000));
+  // Current LinkedIn UI exposes the intro edit button as an unlabeled pencil icon.
+  // With the fixed viewport above, this is the visible pencil in the profile header.
+  await page.mouse.click(826, 314);
+  await sleep(rnd(2500, 4000));
   if (dry) {
-    console.log('[dry] Selecionaria headline:', headlineSel);
+    const current = await page
+      .locator('div[contenteditable="true"].ProseMirror')
+      .first()
+      .innerText();
+    console.log('[dry] Headline atual:', current);
+    console.log('[dry] Headline nova:', text);
     return;
   }
-  await humanType(page, headlineSel, text);
+  await replaceProseMirrorText(page, text);
   await sleep(rnd(800, 1200));
   await saveIfPresent(page);
 }
 
 async function editAbout(page, text, dry) {
-  await page.goto(`${PROFILE_URL}/edit/summary/`, { waitUntil: 'domcontentloaded' });
-  await sleep(rnd(2000, 3000));
-  // The about editor is a rich text area; paste is most reliable
-  const sel =
-    'textarea[name*="summary" i], div[contenteditable="true"][data-testid*="about" i], #about-edit-intro';
+  await gotoWithRetry(page, `${PROFILE_URL}/`, { waitUntil: 'domcontentloaded' });
+  await sleep(rnd(2500, 4000));
+  // Current LinkedIn UI exposes the About edit button as an unlabeled pencil icon.
+  // With the fixed viewport above, this is the visible pencil in the About card.
+  await page.mouse.click(826, 861);
+  await sleep(rnd(2500, 4000));
   if (dry) {
-    console.log('[dry] Selecionaria about:', sel);
+    const current = await page
+      .locator('div[contenteditable="true"].ProseMirror')
+      .first()
+      .innerText();
+    console.log('[dry] About atual:', current.slice(0, 220));
+    console.log('[dry] About novo:', text.slice(0, 220));
     return;
   }
-  const el = await page.$(sel);
-  if (el) {
-    await el.click();
-  } else {
-    // try the first contenteditable on the page
-    const ce = await page.$('div[contenteditable="true"]');
-    if (ce) {
-      await ce.click();
-    }
-  }
-  await sleep(rnd(500, 900));
-  await page.keyboard.press('Control+A');
-  await sleep(rnd(200, 400));
-  await pasteText(page, text);
+  await replaceProseMirrorText(page, text);
   await sleep(rnd(800, 1200));
   await saveIfPresent(page);
 }
 
 async function saveIfPresent(page) {
-  const save = await page.$(
-    'button[aria-label*="Save" i], button[aria-label*="Salvar" i], button[data-control-name="save"] button',
-  );
-  if (save) {
+  const save = page.getByRole('button', { name: /salvar|save/i }).first();
+  if ((await save.count()) && (await save.isVisible())) {
     await save.click();
     await sleep(rnd(1500, 2500));
     console.log('  ✔ Salvo.');
@@ -231,7 +233,9 @@ async function saveIfPresent(page) {
       console.log(
         'Seção complexa (experiência/skills/featured): abrindo a página para edição manual.',
       );
-      await page.goto(s.url || `${PROFILE_URL}/edit/`, { waitUntil: 'domcontentloaded' });
+      await gotoWithRetry(page, s.url || `${PROFILE_URL}/edit/`, {
+        waitUntil: 'domcontentloaded',
+      });
       await sleep(rnd(1500, 2500));
       const { execSync } = require('child_process');
       const b64 = Buffer.from(s.body, 'utf16le').toString('base64');
@@ -245,10 +249,9 @@ async function saveIfPresent(page) {
   if (sectionArg) {
     await runSection(sectionArg);
   } else {
-    // interactive: only the auto-editable ones in sequence
-    const auto = sections.filter(
-      s => s.section.startsWith('headline') || s.section.startsWith('about'),
-    );
+    // Default: only update the public PT profile essentials.
+    // about-en stays available via --section about-en, but is not run automatically.
+    const auto = sections.filter(s => ['headline', 'about-pt'].includes(s.section));
     for (const s of auto) {
       await runSection(s.section);
       await sleep(rnd(3000, 6000)); // pause between actions to look human

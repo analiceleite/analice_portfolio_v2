@@ -4,4 +4,8 @@ title: Sobre (About) - Português
 url: https://www.linkedin.com/in/analice-leite/edit/summary/
 ---
 
-Desenvolvedora Full Stack com foco em plataformas escaláveis, arquitetura backend, Cloud/DevOps e automação com IA. Cresci na Bosch (aprendiz → técnica → analista), atuando em soluções corporativas globais com .NET, C#, Angular, TypeScript, GCP, Kubernetes, Terraform, CI/CD e boas práticas (Clean Architecture, DDD, TDD). Já entreguei sistemas em produção com usuários reais (Crissia e Worship Flow), além de fluxos automatizados com n8n. Atualmente cursando MBA em Arquitetura de Software (Full Cycle) e com inglês C1 Advanced (EFSET). Busco oportunidades como Desenvolvedora Pleno para criar soluções robustas, seguras e de alto valor para negócio.
+Desenvolvedora Full Stack com foco em .NET, Angular, arquitetura backend, Cloud/DevOps e automação com IA. Atuo na Bosch em soluções corporativas globais, com experiência em C#, TypeScript, GCP, Kubernetes, Terraform, Docker, CI/CD, Clean Architecture, DDD, TDD, code review e releases em ambientes DEV, QA e PROD.
+
+Tenho trajetória ascendente em tecnologia (aprendiz → técnica → analista) e busco crescer para uma atuação Pleno, construindo software com impacto real: sistemas bem estruturados, seguros, escaláveis e úteis para o negócio. Também desenvolvo produtos próprios, como o Crissia (SaaS multi-tenant para brechós) e o Worship Flow, aplicação em produção com 30+ usuários reais.
+
+Atualmente curso MBA em Arquitetura de Software (Full Cycle) e tenho inglês C1 Advanced (EFSET). Meu objetivo é conquistar uma vaga de Desenvolvedora Pleno, atuando em produtos full stack, backend, cloud e automação com IA, contribuindo com qualidade técnica, visão de produto e entrega em produção.
