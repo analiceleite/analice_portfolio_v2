@@ -12,9 +12,12 @@ const StyledJobsSection = styled.section`
 
   .inner {
     display: flex;
+    gap: 20px;
 
     @media (max-width: 600px) {
-      display: block;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
     }
 
     // Prevent container from jumping
@@ -34,35 +37,17 @@ const StyledTabList = styled.div`
 
   @media (max-width: 600px) {
     display: flex;
+    gap: 8px;
     overflow-x: auto;
-    width: calc(100% + 100px);
-    padding-left: 50px;
-    margin-left: -50px;
-    margin-bottom: 30px;
-  }
-  @media (max-width: 480px) {
-    width: calc(100% + 50px);
-    padding-left: 25px;
-    margin-left: -25px;
+    width: 100%;
+    padding: 0 0 10px;
+    margin-bottom: 0;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
   }
 
-  li {
-    &:first-of-type {
-      @media (max-width: 600px) {
-        margin-left: 50px;
-      }
-      @media (max-width: 480px) {
-        margin-left: 25px;
-      }
-    }
-    &:last-of-type {
-      @media (max-width: 600px) {
-        padding-right: 50px;
-      }
-      @media (max-width: 480px) {
-        padding-right: 25px;
-      }
-    }
+  &::-webkit-scrollbar {
+    height: 6px;
   }
 `;
 
@@ -86,11 +71,14 @@ const StyledTabButton = styled.button`
   }
   @media (max-width: 600px) {
     ${({ theme }) => theme.mixins.flexCenter};
-    min-width: 120px;
-    padding: 0 15px;
-    border-left: 0;
-    border-bottom: 2px solid var(--lightest-navy);
+    flex: 0 0 auto;
+    min-width: auto;
+    height: 42px;
+    padding: 0 14px;
+    border: 1px solid ${({ isActive }) => (isActive ? 'var(--yellow)' : 'var(--lightest-navy)')};
+    border-radius: var(--border-radius);
     text-align: center;
+    scroll-snap-align: start;
   }
 
   &:hover,
@@ -113,26 +101,17 @@ const StyledHighlight = styled.div`
   transition-delay: 0.1s;
 
   @media (max-width: 600px) {
-    top: auto;
-    bottom: 0;
-    width: 100%;
-    max-width: var(--tab-width);
-    height: 2px;
-    margin-left: 50px;
-    transform: translateX(calc(${({ activeTabId }) => activeTabId} * var(--tab-width)));
-  }
-  @media (max-width: 480px) {
-    margin-left: 25px;
+    display: none;
   }
 `;
 
 const StyledTabPanels = styled.div`
   position: relative;
   width: 100%;
-  margin-left: 20px;
+  margin-left: 0;
 
   @media (max-width: 600px) {
-    margin-left: 0;
+    min-width: 0;
   }
 `;
 
@@ -161,6 +140,27 @@ const StyledTabPanel = styled.div`
     color: var(--light-slate);
     font-family: var(--font-mono);
     font-size: var(--fz-xs);
+  }
+
+  @media (max-width: 600px) {
+    padding: 0;
+
+    h3 {
+      font-size: var(--fz-xl);
+      line-height: 1.35;
+
+      .company {
+        display: block;
+      }
+    }
+
+    .range {
+      margin: 8px 0 18px;
+    }
+
+    ul {
+      padding-left: 0;
+    }
   }
 `;
 

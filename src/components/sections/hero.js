@@ -66,9 +66,9 @@ const Hero = () => {
     <>
       <p>
         I'm a full-stack developer focused on backend architecture, AI-assisted workflows, and
-        reliable products people actually use. My recent work includes Worship Flow, a production
-        app for worship teams with 30+ users, role-based auth, Supabase RLS, external integrations,
-        and automated email notifications. At{' '}
+        reliable products people actually use. My recent work includes Worship Flow, a multi-tenant
+        production app for worship teams with 30+ users, role-based auth, Supabase RLS, public demo
+        access, external integrations, and automated email notifications. At{' '}
         <a href="https://www.bosch.com.br/" target="_blank" rel="noreferrer">
           Bosch Brazil
         </a>
